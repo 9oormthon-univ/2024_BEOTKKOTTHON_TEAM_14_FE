@@ -29,16 +29,14 @@ export const RouterInfo = [
         path: 'callback',
         element: <CallbackPage />,
       },
-    ],
-  },
       {
         path: 'write',
-        element: <WritePage/>,
+        element: <WritePage />,
       },
       {
         path: 'moment',
-        element: <MomentPage/>,
-      }
-      ]
-    }
+        element: <MomentPage />,
+      },
+    ],
+  },
 ];
