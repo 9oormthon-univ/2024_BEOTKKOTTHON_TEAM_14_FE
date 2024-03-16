@@ -24,23 +24,6 @@ const Screen = styled.div`
   }
 `;
 
-const ButtonRow = styled.div`
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0;
-
-  img {
-    width: 22rem;
-    height: 3.2rem;
-  }
-
-  :hover {
-    cursor: pointer;
-  }
-`;
-
 const Icon = styled.div`
   width: 100%;
 
@@ -61,6 +44,23 @@ const Icon = styled.div`
     width: 13.875rem;
     height: 13.8125rem;
     flex-shrink: 0;
+  }
+`;
+
+const ButtonRow = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img {
+    width: 22rem;
+    height: 3.2rem;
+  }
+
+  :hover {
+    cursor: pointer;
   }
 `;
 
