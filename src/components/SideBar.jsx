@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
-  position: relative;
+  position: fixed;
+  top: 3.125rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -11,6 +12,7 @@ const Container = styled.div`
 
   width: 8rem;
   height: calc(100% - 3.125rem);
+  flex-shrink: 0;
 
   border-radius: 0.9375rem 0rem 0rem 0.9375rem;
   background: #fff;
