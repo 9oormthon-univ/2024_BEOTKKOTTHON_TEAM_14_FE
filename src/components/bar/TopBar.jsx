@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import SideBar from '@components/SideBar';
+import SideBar from '@components/bar/SideBar';
 
 const Navbox = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ const Navbox = styled.div`
 
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 
   background-color: #000;
 
@@ -24,8 +24,8 @@ const Navbox = styled.div`
   line-height: 1.375rem; /* 137.5% */
 
   svg {
-    padding: 0.7rem;
     cursor: pointer;
+    margin: 1rem;
   }
 `;
 

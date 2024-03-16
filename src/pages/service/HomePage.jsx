@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import TopBar from '@components/TopBar';
+import TopBar from '@components/bar/TopBar';
 
 const Screen = styled.div`
   position: relative;

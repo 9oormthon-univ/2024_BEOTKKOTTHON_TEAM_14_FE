@@ -1,12 +1,13 @@
+/* 기본(베이스) 레이아웃 */
 import Layout from '@components/Layout';
-
-import HomePage from '@pages/HomePage';
-import LoginPage from '@pages/LoginPage';
-import TestPage from '@pages/TestPage';
-import CallbackPage from '@pages/CallbackPage';
-
-import MomentPage from '../../pages/MomentPage';
-import WritePage from '../../pages/WritePage';
+/* 로그인 */
+import LoginPage from '@pages/login/LoginPage';
+import CallbackPage from '@pages/login/CallbackPage';
+/* 서비스 */
+import HomePage from '@pages/service/HomePage';
+import TestPage from '@pages/service/TestPage';
+import MomentPage from '@pages/service/MomentPage';
+import WritePage from '@pages/service/WritePage';
 
 export const RouterInfo = [
   {
@@ -14,20 +15,20 @@ export const RouterInfo = [
     element: <Layout />,
     children: [
       {
-        path: 'home',
-        element: <HomePage />,
-      },
-      {
         path: 'login',
         element: <LoginPage />,
       },
       {
-        path: 'test',
-        element: <TestPage />,
-      },
-      {
         path: 'callback',
         element: <CallbackPage />,
+      },
+      {
+        path: 'home',
+        element: <HomePage />,
+      },
+      {
+        path: 'test',
+        element: <TestPage />,
       },
       {
         path: 'write',
