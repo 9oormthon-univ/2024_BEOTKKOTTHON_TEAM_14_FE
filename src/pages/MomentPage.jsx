@@ -3,21 +3,19 @@ import Message from '../components/Write/MessageList';
 import Write from '../components/Write/Write';
 import Testament from '../components/Write/Testament';
 import { useRecoilState } from 'recoil';
-import { writePageStateAtom } from '../store/atom';
+import { momentPageStateAtom } from '../store/atom';
+import Moment from '../components/Moment/Moment';
 
 
 function MomentPage() {
-    const [pageName, setPageName] = useRecoilState(writePageStateAtom)
+    const [pageName, setPageName] = useRecoilState(momentPageStateAtom)
     
     const renderComponent = () => {
-        if (pageName == "write") {
-            return <Write/>
+        if (pageName == "moment") {
+            return <Moment/>
         }
         if (pageName == "message") {
             return <Message />
-        }
-        if (pageName == "testament") {
-            return <Testament />
         }
     }
 
@@ -25,7 +23,7 @@ function MomentPage() {
         console.log(pageName)
     }, [pageName])
     return (
-        <>
+        < >
             {
                 renderComponent()
             }
