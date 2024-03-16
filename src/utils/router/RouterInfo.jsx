@@ -5,6 +5,9 @@ import LoginPage from '@pages/LoginPage';
 import TestPage from '@pages/TestPage';
 import CallbackPage from '@pages/CallbackPage';
 
+import MomentPage from '../../pages/MomentPage';
+import WritePage from '../../pages/WritePage';
+
 export const RouterInfo = [
   {
     path: '/',
@@ -28,4 +31,14 @@ export const RouterInfo = [
       },
     ],
   },
+      {
+        path: 'write',
+        element: <WritePage/>,
+      },
+      {
+        path: 'moment',
+        element: <MomentPage/>,
+      }
+      ]
+    }
 ];
