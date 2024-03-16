@@ -61,7 +61,8 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: black;
+  background: linear-gradient(258deg, #10002a -16.4%, #29007f 80.28%);
+
 
   z-index: -1;
 `;
