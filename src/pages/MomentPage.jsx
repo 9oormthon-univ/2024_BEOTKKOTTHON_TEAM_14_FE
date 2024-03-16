@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil';
 import { writePageStateAtom } from '../store/atom';
 
 
-function WritePage() {
+function MomentPage() {
     const [pageName, setPageName] = useRecoilState(writePageStateAtom)
     
     const renderComponent = () => {
@@ -33,4 +33,4 @@ function WritePage() {
     )
 }
 
-export default WritePage
+export default MomentPage
