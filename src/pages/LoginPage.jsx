@@ -12,7 +12,7 @@ const Screen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7.5rem;
+  gap: 4.5rem;
 
   background-color: #000;
 
@@ -20,6 +20,7 @@ const Screen = styled.div`
 
   svg {
     margin-top: 6.38rem;
+    flex-shrink: 0;
   }
 `;
 
@@ -28,6 +29,7 @@ const ButtonRow = styled.div`
 
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 
   img {
     width: 22rem;
@@ -43,11 +45,21 @@ const Icon = styled.div`
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  color: var(--WHITE, #fff);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.875rem; /* 150% */
 
   img {
-    width: 10rem;
-    height: 8.6875rem;
+    width: 13.875rem;
+    height: 13.8125rem;
     flex-shrink: 0;
   }
 `;
@@ -107,6 +119,11 @@ function LoginPage() {
 
       <Icon>
         <img src={ghost} />
+        <span>
+          내일 내가 죽는다면?
+          <br />
+          당신의 죽음을 기획하세요.
+        </span>
       </Icon>
 
       <ButtonRow onClick={handleKakaoLogin}>
