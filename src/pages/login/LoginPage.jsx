@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import kakao_btn from '@assets/kakao_btn.png';
 import ghost from '@assets/ghost.png';
+import logo from '@assets/logo.png';
 
 const Screen = styled.div`
   position: relative;
@@ -12,7 +13,7 @@ const Screen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4.5rem;
+  gap: 3.5rem;
 
   background-color: #000;
 
@@ -120,6 +121,7 @@ function LoginPage() {
       <Icon>
         <img src={ghost} />
         <span>
+          <br />
           내일 내가 죽는다면?
           <br />
           당신의 죽음을 기획하세요.
