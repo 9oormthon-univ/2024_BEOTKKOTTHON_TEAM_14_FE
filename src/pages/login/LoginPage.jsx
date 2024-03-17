@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import kakao_btn from '@assets/kakao_btn.png';
 import ghost from '@assets/ghost.png';
-import logo from '@assets/logo.png';
 
 const Screen = styled.div`
   position: relative;
