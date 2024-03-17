@@ -28,7 +28,7 @@ const TestContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: ;
-  gap: 5rem;
+  gap: 7rem;
 
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   background: #fff;
@@ -58,7 +58,7 @@ const GrayBar = styled.div`
 
 const BlackBar = styled.div`
   position: absolute;
-  width: ${({ width }) => `${width * 1.875}rem`};
+  width: ${({ width }) => width}%;
   height: 0.9375rem;
 
   background: #000;
@@ -101,8 +101,66 @@ const Answer = styled.div`
 `;
 
 const TestPage = () => {
-  let [gauge, setGauge] = useState(1);
+  const [gauge, setGauge] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const navigate = useNavigate();
+
+  const nextQuestion = () => {
+    if (gauge < 9) {
+      setGauge(gauge + 1);
+      setSelectedAnswer(null);
+    } else {
+      navigate('/home');
+    }
+  };
+
+  const handleAnswerClick = (answer) => {
+    setSelectedAnswer(answer);
+    nextQuestion();
+  };
+
+  const questionData = [
+    {
+      question: '지금까지 삶에서 가장 중요했던 가치는?',
+      answers: ['성공', '행복'],
+    },
+    {
+      question: '2번째',
+      answers: ['답변1', '답변2'],
+    },
+    {
+      question: '3번째',
+      answers: ['답변A', '답변B'],
+    },
+    {
+      question: '4번째',
+      answers: ['답변X', '답변Y'],
+    },
+    {
+      question: '5번째',
+      answers: ['답변가', '답변나'],
+    },
+    {
+      question: '6번째',
+      answers: ['답변ㄱ', '답변ㄴ'],
+    },
+    {
+      question: '7번째',
+      answers: ['답변Α', '답변Β'],
+    },
+    {
+      question: '8번째',
+      answers: ['답변a', '답변b'],
+    },
+    {
+      question: '9번째',
+      answers: ['답변!', '답변?'],
+    },
+    {
+      question: '10번째',
+      answers: ['답변!', '답변?'],
+    },
+  ];
 
   return (
     <Screen>
@@ -110,19 +168,22 @@ const TestPage = () => {
 
       <TestContainer>
         <Gauge>
-          <span className="questionNum">{gauge} / 10</span>
+          <span className="questionNum">
+            {gauge + 1} / {questionData.length}
+          </span>
           <GrayBar>
-            <BlackBar width={gauge * 1} />
+            <BlackBar width={(gauge + 1) * (100 / questionData.length)} />
           </GrayBar>
         </Gauge>
 
-        <Question>나의 장례식을 기획해 보자면?</Question>
+        <Question>{questionData[gauge].question}</Question>
 
         <AnswerContainer>
-          <Answer>부자가 되고 싶어요</Answer>
-          <Answer>부자가 되고 싶어요</Answer>
-          <Answer>부자가 되고 싶어요</Answer>
-          <Answer>부자가 되고 싶어요</Answer>
+          {questionData[gauge].answers.map((answer, index) => (
+            <Answer key={index} onClick={() => handleAnswerClick(answer)}>
+              {answer}
+            </Answer>
+          ))}
         </AnswerContainer>
       </TestContainer>
     </Screen>
