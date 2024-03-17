@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import SideBar from '@components/bar/SideBar';
 
@@ -31,9 +32,14 @@ const Navbox = styled.div`
 
 const TopBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
+  };
+
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
@@ -41,6 +47,7 @@ const TopBar = () => {
       <Navbox>
         <svg
           className="back"
+          onClick={goBack}
           xmlns="http://www.w3.org/2000/svg"
           width="10"
           height="15"
