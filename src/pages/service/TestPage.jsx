@@ -106,7 +106,7 @@ const TestPage = () => {
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    if (gauge < 9) {
+    if (gauge < questionData.length) {
       setGauge(gauge + 1);
       setSelectedAnswer(null);
     } else {
