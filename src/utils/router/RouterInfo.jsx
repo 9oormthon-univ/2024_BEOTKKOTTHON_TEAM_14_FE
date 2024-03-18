@@ -10,6 +10,7 @@ import MomentPage from '@pages/service/MomentPage';
 import WritePage from '@pages/service/WritePage';
 
 import LoadingPage from '@pages/service/LoadingPage';
+import ResultPage from '@pages/service/ResultPage';
 
 export const RouterInfo = [
   {
@@ -40,7 +41,14 @@ export const RouterInfo = [
         path: 'moment',
         element: <MomentPage />,
       },
-      { path: 'loading', element: <LoadingPage /> },
+      {
+        path: 'loading',
+        element: <LoadingPage />,
+      },
+      {
+        path: 'result',
+        element: <ResultPage />,
+      },
     ],
   },
 ];
