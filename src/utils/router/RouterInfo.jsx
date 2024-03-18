@@ -9,6 +9,8 @@ import TestPage from '@pages/service/TestPage';
 import MomentPage from '@pages/service/MomentPage';
 import WritePage from '@pages/service/WritePage';
 
+import LoadingPage from '@pages/service/LoadingPage';
+
 export const RouterInfo = [
   {
     path: '/',
@@ -38,6 +40,7 @@ export const RouterInfo = [
         path: 'moment',
         element: <MomentPage />,
       },
+      { path: 'loading', element: <LoadingPage /> },
     ],
   },
 ];

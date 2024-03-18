@@ -136,30 +136,6 @@ const TestPage = () => {
       question: '4번째',
       answers: ['답변X', '답변Y'],
     },
-    {
-      question: '5번째',
-      answers: ['답변가', '답변나'],
-    },
-    {
-      question: '6번째',
-      answers: ['답변ㄱ', '답변ㄴ'],
-    },
-    {
-      question: '7번째',
-      answers: ['답변Α', '답변Β'],
-    },
-    {
-      question: '8번째',
-      answers: ['답변a', '답변b'],
-    },
-    {
-      question: '9번째',
-      answers: ['답변!', '답변?'],
-    },
-    {
-      question: '10번째',
-      answers: ['답변!', '답변?'],
-    },
   ];
 
   return (
