@@ -5,6 +5,7 @@ import { writePageStateAtom } from '@store/atom';
 import Message from '@components/Write/MessageList';
 import Write from '@components/Write/Write';
 import Testament from '@components/Write/Testament';
+import OpenAI from 'openai';
 
 function WritePage() {
   const [pageName, setPageName] = useRecoilState(writePageStateAtom);
@@ -21,9 +22,6 @@ function WritePage() {
     }
   };
 
-  useEffect(() => {
-    console.log(pageName);
-  }, [pageName]);
   return <>{renderComponent()}</>;
 }
 

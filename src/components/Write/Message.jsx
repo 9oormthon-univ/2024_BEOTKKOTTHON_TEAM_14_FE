@@ -4,6 +4,8 @@ import { styled } from 'styled-components';
 import Typography from '../Typography';
 
 const MessageContent = styled.div`
+  background-color: #ffffff;
+  color: black;
   width: 100%;
   align-items: center;
   padding: 10px;

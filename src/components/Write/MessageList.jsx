@@ -9,8 +9,8 @@ const SaveButton = styled.button`
   margin-top: 20px;
   border-radius: 50px;
   display: flex;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: #E9D7F5;
   font-size: 15px;
   gap: 10px;
   width: 100px;
@@ -41,7 +41,7 @@ function MessageList() {
       {addMessage ? (
         <MessageInput setAddMessage={setAddMessage} />
       ) : (
-        <div className="p-[28px]">
+        <div className="p-[28px] bg-[black] h-[100vh] text-[white]">
           <div></div>
           <Typography title={'나의 소중한 사람에게'} type={'bold30'} />
           <Typography
