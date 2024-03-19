@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import TopBar from '@components/bar/TopBar';
 
-import { GhostTest } from '@utils/ghostInfo/test.jsx';
+import { GhostInfo } from '@utils/test/GhostInfo.jsx';
 
 const fadeInOut = keyframes`
   0% {
@@ -91,7 +91,7 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
-  const num = 5;
+  const num = 1;
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {
@@ -107,13 +107,13 @@ const ResultPage = () => {
       <TopBar />
       <Container>
         <CardContainer>
-          <img className="background" src={GhostTest[num][0].background} />
+          <img className="background" src={GhostInfo[num][0].background} />
           <span>당신의 유령은?</span>
 
-          <span className="value">{GhostTest[num][0].value}</span>
-          <img className="icon" src={GhostTest[num][0][`image${imageIndex}`]} />
-          <span className="keyword">{GhostTest[num][0].keyword}</span>
-          <span className="description">{GhostTest[num][0].description}</span>
+          <span className="value">{GhostInfo[num][0].value}</span>
+          <img className="icon" src={GhostInfo[num][0][`image${imageIndex}`]} />
+          <span className="keyword">{GhostInfo[num][0].keyword}</span>
+          <span className="description">{GhostInfo[num][0].description}</span>
         </CardContainer>
       </Container>
     </Screen>

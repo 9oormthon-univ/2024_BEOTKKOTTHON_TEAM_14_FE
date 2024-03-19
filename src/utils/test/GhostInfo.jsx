@@ -20,7 +20,7 @@ import icon_5_1 from '@assets/test/icon_5_1.png';
 import icon_5_2 from '@assets/test/icon_5_2.png';
 import icon_5_3 from '@assets/test/icon_5_3.png';
 
-export const GhostTest = {
+export const GhostInfo = {
   1: [
     {
       value: '열정적인 유령',
