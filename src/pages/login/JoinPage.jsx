@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import FadeLoader from 'react-spinners/FadeLoader';
 
 const Screen = styled.div`
   width: 100%;
@@ -12,7 +11,7 @@ const Screen = styled.div`
   align-items: center;
 `;
 
-const CallBackPage = () => {
+const JoinPage = () => {
   const authorizeCode = new URL(window.location.href).searchParams.get('code');
   const backendUrl = '';
   const navigate = useNavigate();
@@ -42,4 +41,4 @@ const CallBackPage = () => {
   );
 };
 
-export default CallBackPage;
+export default JoinPage;

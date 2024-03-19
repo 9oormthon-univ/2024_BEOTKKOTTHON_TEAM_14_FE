@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-
-import logo from '@assets/logo.png';
-import ghost3D from '@assets/ghost3D.png';
+import { useNavigate } from 'react-router-dom';
 
 const Screen = styled.div`
   position: relative;
@@ -12,38 +10,74 @@ const Screen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+
+  gap: 1.5rem;
 
   background-color: #000;
+`;
 
-  overflow: hidden;
+const Backbtn = styled.div`
+  width: 100%;
+  height: 3.125rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+`;
 
-  color: var(--WHITE, #fff);
+const Title = styled.div`
+  height: 10rem;
+  display: flex;
+  align-items: center;
+
+  color: #fff;
   text-align: center;
-  font-family: Pretendard;
-  font-size: 1.25rem;
+  font-family: Inter;
+  font-size: 2.1875rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.875rem; /* 150% */
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.13125rem;
+`;
 
-  .logo {
-    margin-top: 6.38rem;
+const InputItem = styled.div`
+  width: 100%;
+  padding-left: 2.6rem;
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.44213rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.0865rem;
+`;
 
-    width: 18rem;
-    height: 7rem;
-    flex-shrink: 0;
+const InputForm = styled.input`
+  width: 18.76744rem;
+  padding-bottom: 0.5rem;
+
+  border-bottom: 0.894px solid #fff;
+  background: none;
+
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.00538rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.06031rem;
+
+  &:focus {
+    outline: none;
   }
 
-  .ghost3D {
-    width: 13.875rem;
-    height: 14.375rem;
-    flex-shrink: 0;
+  &::placeholder {
+    color: #fff;
   }
 `;
 
 const Button = styled.div`
-  width: 18.5625rem;
-  height: 3.25rem;
+  width: 7.0625rem;
+  height: 2.75rem;
   flex-shrink: 0;
 
   display: flex;
@@ -55,36 +89,51 @@ const Button = styled.div`
 
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  font-family: Roboto;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
 
   cursor: pointer;
-
-  &:hover {
-    background: #5a5a5a;
-  }
 `;
 
-function LoginPage() {
+const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <Screen>
-      <img className="logo" src={logo} />
-      <span>
-        <br />
-        내일 내가 죽는다면?
-        <br />
-        당신의 죽음을 기획하세요.
-      </span>
+      <Backbtn onClick={goBack}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="10"
+          height="15"
+          viewBox="0 0 10 15"
+          fill="none"
+        >
+          <path
+            d="M10 1.11727L9.04902 0L0 7.5L1.14885 8.45391L9.04902 15L10 13.8827L2.2977 7.5L10 1.11727Z"
+            fill="white"
+          />
+        </svg>
+      </Backbtn>
 
-      <img className="ghost3D" src={ghost3D} />
+      <Title>Log in</Title>
+      <p />
+
+      <InputItem>Email</InputItem>
+      <InputForm placeholder="이메일을 입력해주세요."></InputForm>
+      <p />
+      <InputItem>Password</InputItem>
+      <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
+      <p />
 
       <Button>로그인</Button>
-      <Button>회원가입</Button>
     </Screen>
   );
-}
+};
 
 export default LoginPage;
