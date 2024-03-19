@@ -46,10 +46,9 @@ const Container = styled.div`
 
 const CardContainer = styled.div`
   position: relative;
-  width: 21rem;
-  height: 30rem;
+  width: 22rem;
   flex-shrink: 0;
-  gap: 2rem;
+  gap: 1.5rem;
 
   display: flex;
   flex-direction: column;
@@ -92,7 +91,7 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
-  const num = 1;
+  const num = 2;
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {

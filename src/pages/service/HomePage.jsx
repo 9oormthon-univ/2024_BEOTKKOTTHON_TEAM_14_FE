@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import logo from '@assets/logo.png';
+import home_logo from '@assets/home_logo.png';
 import home_1 from '@assets/home_1.png';
 import home_2 from '@assets/home_2.png';
 import home_3 from '@assets/home_3.png';
@@ -41,21 +41,19 @@ const Logo = styled.div`
   text-align: center;
 
   img {
-    width: 15rem;
+    width: 19.375rem;
+    height: 9.25rem;
+    flex-shrink: 0;
   }
 `;
 
 const MenuArea = styled.div`
   width: 100%;
-  height: 20rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-
-  // background: yellow;
 `;
 
 const MenuBox = styled.div`
@@ -95,8 +93,9 @@ const HomePage = () => {
   return (
     <Screen>
       <Logo>
-        <img src={logo} />
+        <img src={home_logo} />
 
+        <br />
         <span>
           당신이 내일 죽는다면? <br />
           플랜데스와 함께 <br />
@@ -128,6 +127,7 @@ const HomePage = () => {
             fill="white"
           />
         </svg>
+        <br />
       </Logo>
 
       <MenuArea>
@@ -167,6 +167,8 @@ const HomePage = () => {
           </MenuBox>
         </Link>
       </MenuArea>
+      <br />
+      <br />
     </Screen>
   );
 };
