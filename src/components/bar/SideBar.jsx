@@ -10,11 +10,10 @@ const Container = styled.div`
   align-items: center;
   gap: 1rem;
 
-  width: 15rem;
+  width: 24.375rem;
   height: calc(100% - 3.125rem);
   flex-shrink: 0;
 
-  border-radius: 0.9375rem 0rem 0rem 0.9375rem;
   background: #000;
   box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.4);
 
@@ -34,7 +33,7 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 12rem;
+  width: 20rem;
   height: 3rem;
 
   color: #fff;
