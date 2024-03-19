@@ -11,7 +11,7 @@ const Screen = styled.div`
   flex-direction: column;
   align-items: center;
 
-  gap: 1.5rem;
+  gap: 1.3rem;
 
   background-color: #000;
 `;
@@ -27,9 +27,12 @@ const Backbtn = styled.div`
 `;
 
 const Title = styled.div`
-  height: 10rem;
+  width: 100%;
+  height: 4rem;
+
   display: flex;
   align-items: center;
+  padding-left: 2.6rem;
 
   color: #fff;
   text-align: center;
@@ -100,15 +103,15 @@ const Button = styled.div`
   cursor: pointer;
 `;
 
-const LoginPage = () => {
+const JoinPage = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate('/start');
   };
 
-  const goHome = () => {
-    navigate('/home');
+  const goStart = () => {
+    navigate('/start');
   };
 
   return (
@@ -128,19 +131,25 @@ const LoginPage = () => {
         </svg>
       </Backbtn>
 
-      <Title>Log in</Title>
+      <Title>Sign Up</Title>
       <p />
 
+      <InputItem>Username</InputItem>
+      <InputForm placeholder="이름을 입력해주세요."></InputForm>
+      <p />
       <InputItem>Email</InputItem>
       <InputForm placeholder="이메일을 입력해주세요."></InputForm>
       <p />
       <InputItem>Password</InputItem>
       <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
       <p />
+      <InputItem>Phone number</InputItem>
+      <InputForm placeholder="전화번호를 입력해주세요."></InputForm>
+      <p />
 
-      <Button onClick={goHome}>로그인</Button>
+      <Button onClick={goStart}>가입 완료</Button>
     </Screen>
   );
 };
 
-export default LoginPage;
+export default JoinPage;
