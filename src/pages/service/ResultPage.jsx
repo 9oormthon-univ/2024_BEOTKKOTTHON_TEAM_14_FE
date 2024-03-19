@@ -46,8 +46,8 @@ const Container = styled.div`
 
 const CardContainer = styled.div`
   position: relative;
-  width: 20rem;
-  height: 38rem;
+  width: 21rem;
+  height: 30rem;
   flex-shrink: 0;
   gap: 2rem;
 
@@ -92,6 +92,7 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
+  const num = 1;
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {
@@ -107,13 +108,13 @@ const ResultPage = () => {
       <TopBar />
       <Container>
         <CardContainer>
-          <img className="background" src={GhostTest[1][0].background} />
+          <img className="background" src={GhostTest[num][0].background} />
           <span>당신의 유령은?</span>
 
-          <span className="value">{GhostTest[2][0].value}</span>
-          <img className="icon" src={GhostTest[1][0][`image${imageIndex}`]} />
-          <span className="keyword">{GhostTest[1][0].keyword}</span>
-          <span className="description">{GhostTest[1][0].description}</span>
+          <span className="value">{GhostTest[num][0].value}</span>
+          <img className="icon" src={GhostTest[num][0][`image${imageIndex}`]} />
+          <span className="keyword">{GhostTest[num][0].keyword}</span>
+          <span className="description">{GhostTest[num][0].description}</span>
         </CardContainer>
       </Container>
     </Screen>

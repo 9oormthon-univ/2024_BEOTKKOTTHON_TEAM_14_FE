@@ -7,6 +7,18 @@ import background_5 from '@assets/test/background_5.png';
 import icon_1_1 from '@assets/test/icon_1_1.png';
 import icon_1_2 from '@assets/test/icon_1_2.png';
 import icon_1_3 from '@assets/test/icon_1_3.png';
+import icon_2_1 from '@assets/test/icon_2_1.png';
+import icon_2_2 from '@assets/test/icon_2_2.png';
+import icon_2_3 from '@assets/test/icon_2_3.png';
+import icon_3_1 from '@assets/test/icon_3_1.png';
+import icon_3_2 from '@assets/test/icon_3_2.png';
+import icon_3_3 from '@assets/test/icon_3_3.png';
+import icon_4_1 from '@assets/test/icon_4_1.png';
+import icon_4_2 from '@assets/test/icon_4_2.png';
+import icon_4_3 from '@assets/test/icon_4_3.png';
+import icon_5_1 from '@assets/test/icon_5_1.png';
+import icon_5_2 from '@assets/test/icon_5_2.png';
+import icon_5_3 from '@assets/test/icon_5_3.png';
 
 export const GhostTest = {
   1: [
@@ -41,9 +53,9 @@ export const GhostTest = {
         </span>
       ),
       background: background_2,
-      image1: '',
-      image2: '',
-      image3: '',
+      image1: icon_2_1,
+      image2: icon_2_2,
+      image3: icon_2_3,
     },
   ],
   3: [
@@ -59,9 +71,9 @@ export const GhostTest = {
         </span>
       ),
       background: background_3,
-      image1: '',
-      image2: '',
-      image3: '',
+      image1: icon_3_1,
+      image2: icon_3_2,
+      image3: icon_3_3,
     },
   ],
   4: [
@@ -78,9 +90,9 @@ export const GhostTest = {
         </span>
       ),
       background: background_4,
-      image1: '',
-      image2: '',
-      image3: '',
+      image1: icon_4_1,
+      image2: icon_4_2,
+      image3: icon_4_3,
     },
   ],
   5: [
@@ -97,9 +109,9 @@ export const GhostTest = {
         </span>
       ),
       background: background_5,
-      image1: '',
-      image2: '',
-      image3: '',
+      image1: icon_5_1,
+      image2: icon_5_2,
+      image3: icon_5_3,
     },
   ],
 };
