@@ -91,7 +91,7 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
-  const num = 2;
+  const num = 5;
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {

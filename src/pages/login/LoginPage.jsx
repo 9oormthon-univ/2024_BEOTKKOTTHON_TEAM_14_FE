@@ -22,6 +22,8 @@ const Backbtn = styled.div`
   padding-left: 1rem;
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 `;
 
 const Title = styled.div`
@@ -102,8 +104,13 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(-1);
+    navigate('/start');
   };
+
+  const goHome = () => {
+    navigate('/home');
+  };
+
   return (
     <Screen>
       <Backbtn onClick={goBack}>
@@ -131,7 +138,7 @@ const LoginPage = () => {
       <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
       <p />
 
-      <Button>로그인</Button>
+      <Button onClick={goHome}>로그인</Button>
     </Screen>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import logo from '@assets/logo.png';
 import ghost3D from '@assets/ghost3D.png';
@@ -81,8 +82,12 @@ function StartPage() {
 
       <img className="ghost3D" src={ghost3D} />
 
-      <Button>로그인</Button>
-      <Button>회원가입</Button>
+      <Link to={`/login`}>
+        <Button>로그인</Button>
+      </Link>
+      <Link to={`/join`}>
+        <Button>회원가입</Button>
+      </Link>
     </Screen>
   );
 }
