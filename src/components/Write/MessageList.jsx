@@ -6,7 +6,7 @@ import Message from './Message';
 import MessageInput from './MessageInput';
 
 const SaveButton = styled.button`
-  margin-top: 20px;
+  margin: 30px 0;
   border-radius: 50px;
   display: flex;
   color: black;
@@ -15,7 +15,6 @@ const SaveButton = styled.button`
   gap: 10px;
   width: 100px;
   height: 30px;
-  margin-bottom: 20px;
   justify-content: center;
   align-items: center;
 `;
@@ -29,7 +28,7 @@ function MessageList() {
     },
     {
       title: '훈이에게',
-      text: '그동안 행복했어 정말 또 만나자',
+      text: '그동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자',
     },
     {
       title: '철수야',

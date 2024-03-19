@@ -13,7 +13,7 @@ const MessageContent = styled.div`
   border-radius: 10px;
   font-size: 15px;
   &:hover {
-    background-color: #f5f5f5;
+    background-color: #F3ECF9;
   }
 `;
 

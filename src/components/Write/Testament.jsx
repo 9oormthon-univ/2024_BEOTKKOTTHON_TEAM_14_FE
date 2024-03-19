@@ -27,7 +27,7 @@ function Testament() {
     <div className="relative p-[28px]">
       <Typography title={'나의 유서 작성하기'} type={'bold30'} />
       <Typography
-        title={'당신의 유서를 아래의 양식에 맞게 작성해 주세요.'}
+        title={'인생에서 가장 하고 싶은 말을 적어주세요. '}
         type={'regular15'}
       />
       <Typography

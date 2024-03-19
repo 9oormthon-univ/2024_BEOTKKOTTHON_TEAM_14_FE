@@ -8,6 +8,7 @@ import HomePage from '@pages/service/HomePage';
 import TestPage from '@pages/service/TestPage';
 import MomentPage from '@pages/service/MomentPage';
 import WritePage from '@pages/service/WritePage';
+import TestamentPage from '@pages/service/TestamentPage';
 
 export const RouterInfo = [
   {
@@ -33,6 +34,10 @@ export const RouterInfo = [
       {
         path: 'write',
         element: <WritePage />,
+      },
+      {
+        path: 'testament',
+        element: <TestamentPage />,
       },
       {
         path: 'moment',
