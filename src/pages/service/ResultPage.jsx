@@ -70,14 +70,14 @@ const CardContainer = styled.div`
   }
 
   .value {
-    font-size: 3.125rem;
+    font-size: 2.6rem;
     z-index: 10;
   }
 
   .icon {
     width: 10rem;
     z-index: 10;
-    animation: ${fadeInOut} 2s linear infinite;
+    animation: ${fadeInOut} 3s infinite;
   }
 
   .keyword {
@@ -91,16 +91,16 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
-  const num = 1;
+  const num = 4;
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((prevIndex) => (prevIndex % 3) + 1);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [imageIndex]);
 
   return (
     <Screen>
