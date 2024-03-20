@@ -8,12 +8,11 @@ const MessageContent = styled.div`
   color: black;
   width: 100%;
   align-items: center;
-  padding: 10px;
-  box-shadow: 0 0 10px #f5f5f5;
+  padding: 10px 15px 15px 15px;
   border-radius: 10px;
   font-size: 15px;
   &:hover {
-    background-color: #F3ECF9;
+    background-color: #F3EDE0;
   }
 `;
 

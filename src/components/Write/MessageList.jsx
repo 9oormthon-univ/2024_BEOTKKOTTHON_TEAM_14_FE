@@ -4,19 +4,21 @@ import { styled } from 'styled-components';
 import Typography from '../Typography';
 import Message from './Message';
 import MessageInput from './MessageInput';
+import heart from '@assets/heartMessage.png'
 
 const SaveButton = styled.button`
-  margin: 30px 0;
+  margin: 20px 0;
   border-radius: 50px;
   display: flex;
-  color: black;
-  background-color: #E9D7F5;
-  font-size: 15px;
-  gap: 10px;
+  border: 1px solid white;
+  background-color: black;
+  font-size: 18px;
   width: 100px;
-  height: 30px;
-  justify-content: center;
+  height: 36px;
   align-items: center;
+  &:hover{
+    background-color: #3A3A3A;
+  }
 `;
 
 function MessageList() {
@@ -41,25 +43,27 @@ function MessageList() {
         <MessageInput setAddMessage={setAddMessage} />
       ) : (
         <div className="p-[28px] bg-[black] h-[100vh] text-[white]">
-          <div></div>
+          <div className='ml-[120px] mb-[10px] w-[30%]'>
+            <img src={heart}/>
+          </div>
           <Typography title={'나의 소중한 사람에게'} type={'bold30'} />
           <Typography
             title={'사랑하는 사람에게 남기고 싶은 편지를 작성하세요.'}
             type={'regular15'}
           />
-          <div className="flex justify-end mt-[10px]">
+          <div className="grid grid-rows-2 grid-cols-2 gap-[15px] mt-[30px]">
+            {testdata.map((data) => {
+              return <Message title={data.title} text={data.text} />;
+            })}
+          </div>
+          <div className="flex justify-center mt-[10px]">
             <SaveButton
               onClick={() => {
                 setAddMessage(true);
               }}
             >
-              New
+              + New
             </SaveButton>
-          </div>
-          <div className="grid grid-rows-2 grid-cols-2 gap-[15px]">
-            {testdata.map((data) => {
-              return <Message title={data.title} text={data.text} />;
-            })}
           </div>
         </div>
       )}
