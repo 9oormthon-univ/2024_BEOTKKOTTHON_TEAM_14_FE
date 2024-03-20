@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Screen = styled.div`
   position: relative;
@@ -106,11 +107,35 @@ const Button = styled.div`
 const JoinPage = () => {
   const navigate = useNavigate();
 
-  const goBack = () => {
-    navigate('/start');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+
+  const handleSubmit = async () => {
+    const formData = {
+      name: username,
+      email: email,
+      password: password,
+      phoneNumber: phonenumber,
+    };
+
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/auth/register`,
+        formData
+      );
+      if (response.data.code === 201) {
+        console.log(response.data.message);
+        navigate('/start');
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+      console.log(formData);
+    }
   };
 
-  const goStart = () => {
+  const goBack = () => {
     navigate('/start');
   };
 
@@ -135,19 +160,39 @@ const JoinPage = () => {
       <p />
 
       <InputItem>Username</InputItem>
-      <InputForm placeholder="이름을 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Email</InputItem>
-      <InputForm placeholder="이메일을 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Password</InputItem>
-      <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Phone number</InputItem>
-      <InputForm placeholder="전화번호를 입력해주세요."></InputForm>
+      <InputForm
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="이름을 입력해주세요."
+      />
       <p />
 
-      <Button onClick={goStart}>가입 완료</Button>
+      <InputItem>Email</InputItem>
+      <InputForm
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="이메일을 입력해주세요."
+      />
+      <p />
+
+      <InputItem>Password</InputItem>
+      <InputForm
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="비밀번호를 입력해주세요."
+        type="password"
+      />
+      <p />
+
+      <InputItem>Phone number</InputItem>
+      <InputForm
+        value={phonenumber}
+        onChange={(e) => setPhonenumber(e.target.value)}
+        placeholder="전화번호를 입력해주세요."
+      />
+      <p />
+
+      <Button onClick={handleSubmit}>가입 완료</Button>
     </Screen>
   );
 };
