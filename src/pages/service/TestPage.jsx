@@ -111,7 +111,7 @@ const TestPage = () => {
       setGauge(gauge + 1);
       setSelectedAnswer(null);
     } else {
-      navigate('/result');
+      navigate('/loading');
     }
   };
 
