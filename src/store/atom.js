@@ -5,6 +5,12 @@ export const writePageStateAtom = atom({
     default: "write",
 });
 
+
+export const recordPageStateAtom = atom({
+    key: "recordPageStateAtom",
+    default: "record",
+});
+
 export const momentPageStateAtom = atom({
     key: "momentPageStateAtom",
     default: "moment",
