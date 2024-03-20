@@ -122,7 +122,7 @@ const JoinPage = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8080/auth/register`,
+        `http://3.34.192.25/auth/register`,
         formData
       );
       if (response.data.code === 201) {
