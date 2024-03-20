@@ -101,7 +101,8 @@ const Button = styled.div`
   font-weight: 600;
   line-height: normal;
 
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 `;
 
 const JoinPage = () => {
@@ -111,6 +112,13 @@ const JoinPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phonenumber, setPhonenumber] = useState('');
+
+  const isEmailValid = email.includes('@');
+  const isFormValid =
+    username.trim() !== '' &&
+    email.trim() !== '' &&
+    password.trim() !== '' &&
+    phonenumber.trim() !== '';
 
   const handleSubmit = async () => {
     const formData = {
@@ -171,7 +179,7 @@ const JoinPage = () => {
       <InputForm
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="이메일을 입력해주세요."
+        placeholder="plandeath@goorm.com"
       />
       <p />
 
@@ -179,7 +187,7 @@ const JoinPage = () => {
       <InputForm
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="비밀번호를 입력해주세요."
+        placeholder="특수문자와 함께 5자 이상 입력해주세요."
         type="password"
       />
       <p />
@@ -188,11 +196,13 @@ const JoinPage = () => {
       <InputForm
         value={phonenumber}
         onChange={(e) => setPhonenumber(e.target.value)}
-        placeholder="전화번호를 입력해주세요."
+        placeholder="010-0000-0000"
       />
       <p />
 
-      <Button onClick={handleSubmit}>가입 완료</Button>
+      <Button onClick={handleSubmit} disabled={!isEmailValid || !isFormValid}>
+        가입 완료
+      </Button>
     </Screen>
   );
 };
