@@ -28,7 +28,7 @@ const Container = styled.div`
   }
 `;
 
-const IconContainer = styled.div`
+const MenuContainer = styled.div`
   padding-top: 3rem;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ const SideBar = () => {
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
-        <IconContainer>
+        <MenuContainer>
           <span>HOME</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,16 +81,21 @@ const SideBar = () => {
               </clipPath>
             </defs>
           </svg>
-        </IconContainer>
+        </MenuContainer>
       </NavLink>
 
       <NavLink
         to={`/test`}
         className={({ isActive }) =>
-          isActive || location.pathname === `/` ? 'active' : 'inactive'
+          isActive ||
+          location.pathname === `/` ||
+          location.pathname === `/loading` ||
+          location.pathname === `/result`
+            ? 'active'
+            : 'inactive'
         }
       >
-        <IconContainer>
+        <MenuContainer>
           <span>유령 찾기 테스트</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +121,7 @@ const SideBar = () => {
               </clipPath>
             </defs>
           </svg>
-        </IconContainer>
+        </MenuContainer>
       </NavLink>
 
       <NavLink
@@ -125,7 +130,7 @@ const SideBar = () => {
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
-        <IconContainer>
+        <MenuContainer>
           <span>AI로 추억찾기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +156,7 @@ const SideBar = () => {
               </clipPath>
             </defs>
           </svg>
-        </IconContainer>
+        </MenuContainer>
       </NavLink>
 
       <NavLink
@@ -160,7 +165,7 @@ const SideBar = () => {
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
-        <IconContainer>
+        <MenuContainer>
           <span>유서 쓰기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +191,7 @@ const SideBar = () => {
               </clipPath>
             </defs>
           </svg>
-        </IconContainer>
+        </MenuContainer>
       </NavLink>
 
       <NavLink
@@ -195,7 +200,7 @@ const SideBar = () => {
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
-        <IconContainer>
+        <MenuContainer>
           <span>마지막 편지</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +226,7 @@ const SideBar = () => {
               </clipPath>
             </defs>
           </svg>
-        </IconContainer>
+        </MenuContainer>
       </NavLink>
     </Container>
   );
