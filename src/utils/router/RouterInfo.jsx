@@ -6,13 +6,13 @@ import LoginPage from '@pages/login/LoginPage';
 import JoinPage from '@pages/login/JoinPage';
 /* 서비스 */
 import HomePage from '@pages/service/HomePage';
-import TestPage from '@pages/service/TestPage';
 import MomentPage from '@pages/service/MomentPage';
 import WritePage from '@pages/service/WritePage';
 import RecordPage from '@pages/service/RecordPage';
-
-import LoadingPage from '@pages/service/LoadingPage';
-import ResultPage from '@pages/service/ResultPage';
+/* 서비스 - 유령 테스트 */
+import TestPage from '@pages/test/TestPage';
+import LoadingPage from '@pages/test/LoadingPage';
+import ResultPage from '@pages/test/ResultPage';
 
 export const RouterInfo = [
   {

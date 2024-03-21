@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+
 import profile from '@assets/com_profile.png';
 
 const Computer = styled.div`
