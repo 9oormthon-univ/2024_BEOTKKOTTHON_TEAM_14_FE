@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import logo from "@assets/logoChar.png";
+import axios from 'axios';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -38,7 +40,7 @@ const TitleArea = styled.textarea`
   line-height: 35px;
   height: 37px;
   min-height: 35px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 25px;
 `;
 
@@ -62,21 +64,33 @@ const MessageArea = styled.textarea`
       #ffffff 35px
     );
   line-height: 35px;
-  height: 523px;
+  height: 403px;
   min-height: 35px;
   margin-left: 25px;
 `;
 
 function MessageInput({ setAddMessage }) {
+  const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('');
+
   return (
-    <div className=" h-[100vh]">
-      <div></div>
-      <TitleArea placeholder="누구에게 편지를 보낼까요?"></TitleArea>
-      <MessageArea placeholder="사랑하는 사람에게 남기고 싶은 편지를 작성하세요."></MessageArea>
+    <div className="h-[100vh]">
+      <div className='ml-[90px] w-[60%] pt-[30px]'>
+        <img src={logo} className='' />
+      </div>
+      <TitleArea placeholder="누구에게 편지를 보낼까요?" value={title} onChange={(e) => { setTitle(e.target.value) }}></TitleArea>
+      <MessageArea placeholder="사랑하는 사람에게 남기고 싶은 편지를 작성하세요." value={message} onChange={(e) => { setMessage(e.target.value) }}></MessageArea>
       <div className="flex justify-center">
         <SaveButton
           onClick={() => {
-            setAddMessage(false);
+            axios.post("http://3.37.117.95:8080/messages", {
+              receiver: title, //편지받는사람
+              message: message //편지내용
+            })
+            .then((res)=>{
+              // console.log(res.data.message);
+              setAddMessage(false);
+            })
           }}
         >
           완료
