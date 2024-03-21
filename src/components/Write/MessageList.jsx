@@ -7,7 +7,7 @@ import MessageInput from './MessageInput';
 import heart from '@assets/heartMessage.png'
 
 const SaveButton = styled.button`
-  margin: 20px 0;
+  margin: 30px 0;
   border-radius: 50px;
   display: flex;
   border: 1px solid white;

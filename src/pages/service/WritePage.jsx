@@ -5,6 +5,8 @@ import { writePageStateAtom } from '@store/atom';
 import Message from '@components/Write/MessageList';
 import Write from '@components/Write/Write';
 import Testament from '@components/Write/Testament';
+import Question from '@components/Write/Question';
+
 
 function WritePage() {
   const [pageName, setPageName] = useRecoilState(writePageStateAtom);
@@ -18,6 +20,9 @@ function WritePage() {
     }
     if (pageName == 'testament') {
       return <Testament />;
+    }
+    if (pageName == 'question') {
+      return <Question />;
     }
   };
 
