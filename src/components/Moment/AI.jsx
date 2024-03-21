@@ -6,7 +6,7 @@ import Ai from '@assets/test/ai.png';
 import TopBar from '@components/bar/TopBar'
 
 import { useRecoilState } from 'recoil';
-import { writePageStateAtom } from '@store/atom';
+import { momentPageStateAtom } from '@store/atom';
 
 const Screen = styled.div`
   position: relative;
@@ -70,7 +70,7 @@ const Button = styled.div`
   }
 `;
 function AI() {
-    const [writePageState, setWritePageState] = useRecoilState(writePageStateAtom);
+    const [writePageState, setWritePageState] = useRecoilState(momentPageStateAtom);
     return (
         <>
             <TopBar/>
