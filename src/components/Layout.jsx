@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { useMediaQuery } from "react-responsive";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
+import { Outlet } from 'react-router-dom';
 
-import viteLogo from '/vite.svg'
+import viteLogo from '/vite.svg';
 
 const Container = styled.div`
   position: relative;
@@ -61,7 +61,7 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: black;
+  background: linear-gradient(258deg, #10002a -16.4%, #29007f 80.28%);
 
   z-index: -1;
 `;
@@ -74,17 +74,17 @@ function Layout() {
       {!isMobile && (
         <LogoContainer>
           <Logo>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+            <img src={viteLogo} className="logo" alt="Vite logo" />
             {/* 로고 이미지 경로 */}
           </Logo>
-          <h3 className="logo__description">나의 죽음을 기획해보세요.</h3>        
+          <h3 className="logo__description">나의 죽음을 기획해보세요.</h3>
         </LogoContainer>
       )}
       <ContentContainer>
         <Outlet />
       </ContentContainer>
 
-      <Background/>
+      <Background />
     </Container>
   );
 }
