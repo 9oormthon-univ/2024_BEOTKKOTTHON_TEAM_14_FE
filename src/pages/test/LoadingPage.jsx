@@ -43,13 +43,13 @@ const Container = styled.div`
 const LoadingPage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/result');
-    }, 3500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     navigate('/result');
+  //   }, 3500);
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  //   return () => clearTimeout(timer);
+  // }, [navigate]);
 
   return (
     <Screen>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import TopBar from '@components/bar/TopBar';
 
@@ -91,7 +91,7 @@ const CardContainer = styled.div`
 `;
 
 const ResultPage = () => {
-  const num = 4;
+  const { resultNum } = useParams();
   const [imageIndex, setImageIndex] = useState(1);
 
   useEffect(() => {
@@ -107,13 +107,21 @@ const ResultPage = () => {
       <TopBar />
       <Container>
         <CardContainer>
-          <img className="background" src={GhostInfo[num][0].background} />
+          <img
+            className="background"
+            src={GhostInfo[resultNum][0].background}
+          />
           <span>당신의 유령은?</span>
 
-          <span className="value">{GhostInfo[num][0].value}</span>
-          <img className="icon" src={GhostInfo[num][0][`image${imageIndex}`]} />
-          <span className="keyword">{GhostInfo[num][0].keyword}</span>
-          <span className="description">{GhostInfo[num][0].description}</span>
+          <span className="value">{GhostInfo[resultNum][0].value}</span>
+          <img
+            className="icon"
+            src={GhostInfo[resultNum][0][`image${imageIndex}`]}
+          />
+          <span className="keyword">{GhostInfo[resultNum][0].keyword}</span>
+          <span className="description">
+            {GhostInfo[resultNum][0].description}
+          </span>
         </CardContainer>
       </Container>
     </Screen>
