@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { writePageStateAtom } from '@store/atom';
+import { recordPageStateAtom } from '@store/atom';
 
-import Message from '@components/Write/MessageList';
-import Write from '@components/Write/Write';
 import Testament from '@components/Write/Testament';
+import Record from '@components/Write/Record';
 import Question from '@components/Write/Question';
 
-
-function WritePage() {
-  const [pageName, setPageName] = useRecoilState(writePageStateAtom);
+function RecordPage() {
+  const [pageName, setPageName] = useRecoilState(recordPageStateAtom);
 
   const renderComponent = () => {
-    if (pageName == 'write') {
-      return <Write />;
-    }
-    if (pageName == 'message') {
-      return <Message />;
+    if(pageName == 'record') {
+      return <Record/>
     }
     if (pageName == 'testament') {
       return <Testament />;
@@ -29,4 +24,4 @@ function WritePage() {
   return <>{renderComponent()}</>;
 }
 
-export default WritePage;
+export default RecordPage;

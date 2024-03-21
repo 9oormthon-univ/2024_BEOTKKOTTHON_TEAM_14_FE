@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
+import TopBar from '@components/bar/TopBar';
+
 
 function Chat() {
     const [chatList, setChatList] = useState([
@@ -20,6 +22,7 @@ function Chat() {
 
     return (
         <>
+            <TopBar/>
             <div className='bg-[#00000f] text-[white] w-[100%] h-[100vh] p-[28px] flex flex-col justify-end'>
                 {
                     chatList.map(item => {

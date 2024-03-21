@@ -9,6 +9,7 @@ import HomePage from '@pages/service/HomePage';
 import TestPage from '@pages/service/TestPage';
 import MomentPage from '@pages/service/MomentPage';
 import WritePage from '@pages/service/WritePage';
+import RecordPage from '@pages/service/RecordPage';
 
 import LoadingPage from '@pages/service/LoadingPage';
 import ResultPage from '@pages/service/ResultPage';
@@ -41,6 +42,10 @@ export const RouterInfo = [
       {
         path: 'write',
         element: <WritePage />,
+      },
+      {
+        path: 'record',
+        element: <RecordPage />,
       },
       {
         path: 'moment',
