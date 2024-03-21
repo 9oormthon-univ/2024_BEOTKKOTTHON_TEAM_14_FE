@@ -13,5 +13,5 @@ export const recordPageStateAtom = atom({
 
 export const momentPageStateAtom = atom({
     key: "momentPageStateAtom",
-    default: "moment",
+    default: "ai",
 });
