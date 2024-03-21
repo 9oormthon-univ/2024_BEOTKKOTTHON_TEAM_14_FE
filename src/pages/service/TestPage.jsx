@@ -121,15 +121,20 @@ const TestPage = () => {
   const sendTestResults = async (updatedAnswers) => {
     console.log(updatedAnswers);
 
-    // try {
-    //   const response = await axios.post(
-    //     'http://3.34.192.25/ghostTest',
-    //     updatedAnswers
-    //   );
-    //   navigate('/loading');
-    // } catch (error) {
-    //   console.error('Error submitting test:', error);
-    // }
+    try {
+      const response = await axios.post('/api/ghostTest', updatedAnswers, {
+        headers: {
+          'Content-Type': 'application/json',
+          updatedAnswers,
+        },
+      });
+      if (response.ok) {
+        // navigate('/loading');
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.error('Error submitting test:', error);
+    }
   };
 
   const questionData = [

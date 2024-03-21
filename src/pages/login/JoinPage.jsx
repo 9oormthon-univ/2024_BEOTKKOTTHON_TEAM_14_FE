@@ -120,7 +120,7 @@ const JoinPage = () => {
     password.trim() !== '' &&
     phonenumber.trim() !== '';
 
-  const handleSubmit = async () => {
+  const handleJoin = async () => {
     const formData = {
       email: email,
       phoneNumber: phonenumber,
@@ -141,7 +141,6 @@ const JoinPage = () => {
       }
     } catch (error) {
       console.error('Error registering:', error);
-      console.log(formData);
     }
   };
 
@@ -202,7 +201,7 @@ const JoinPage = () => {
       />
       <p />
 
-      <Button onClick={handleSubmit} disabled={!isEmailValid || !isFormValid}>
+      <Button onClick={handleJoin} disabled={!isEmailValid || !isFormValid}>
         가입 완료
       </Button>
     </Screen>

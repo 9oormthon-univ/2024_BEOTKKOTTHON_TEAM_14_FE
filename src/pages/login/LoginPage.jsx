@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Screen = styled.div`
   position: relative;
@@ -97,18 +98,42 @@ const Button = styled.div`
   font-weight: 600;
   line-height: normal;
 
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 `;
 
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const goBack = () => {
-    navigate('/start');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isEmailValid = email.includes('@');
+  const isFormValid = email.trim() !== '' && password.trim() !== '';
+
+  const handleLogin = async () => {
+    const formData = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(`/api/auth/login`, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          formData,
+        },
+      });
+      if (response.data.code === 201) {
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error('Error login:', error);
+    }
   };
 
-  const goHome = () => {
-    navigate('/home');
+  const goBack = () => {
+    navigate('/start');
   };
 
   return (
@@ -132,13 +157,25 @@ const LoginPage = () => {
       <p />
 
       <InputItem>Email</InputItem>
-      <InputForm placeholder="이메일을 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Password</InputItem>
-      <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
+      <InputForm
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="plandeath@goorm.com"
+      ></InputForm>
       <p />
 
-      <Button onClick={goHome}>로그인</Button>
+      <InputItem>Password</InputItem>
+      <InputForm
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="특수문자와 함께 5자 이상 입력해주세요."
+        type="password"
+      ></InputForm>
+      <p />
+
+      <Button onClick={handleLogin} disabled={!isEmailValid || !isFormValid}>
+        로그인
+      </Button>
     </Screen>
   );
 };
