@@ -30,4 +30,14 @@ export default defineConfig({
       },
     ],
   },
+
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://3.37.117.95:8080/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
