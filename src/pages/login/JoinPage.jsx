@@ -131,7 +131,13 @@ const JoinPage = () => {
     try {
       const response = await axios.post(
         `http://3.37.117.95:8080/auth/register`,
-        JSON.stringify(formData)
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            formData,
+          },
+        }
       );
       if (response.data.code === 201) {
         console.log(response.data.message);
