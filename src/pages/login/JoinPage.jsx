@@ -135,6 +135,7 @@ const JoinPage = () => {
           formData,
         },
       });
+
       if (response.data.code === 201) {
         console.log(response.data.message);
         navigate('/start');

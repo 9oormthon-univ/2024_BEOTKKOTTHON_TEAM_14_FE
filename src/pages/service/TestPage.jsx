@@ -105,6 +105,7 @@ const Answer = styled.div`
 const TestPage = () => {
   const [gauge, setGauge] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const navigate = useNavigate();
 
   const handleAnswerClick = (answerIndex) => {
     const updatedAnswers = { ...selectedAnswer };
@@ -119,8 +120,6 @@ const TestPage = () => {
   };
 
   const sendTestResults = async (updatedAnswers) => {
-    console.log(updatedAnswers);
-
     try {
       const response = await axios.post('/api/ghostTest', updatedAnswers, {
         headers: {
@@ -128,9 +127,11 @@ const TestPage = () => {
           updatedAnswers,
         },
       });
-      if (response.ok) {
-        // navigate('/loading');
-        console.log(response.data);
+
+      if (response.data.code === 201) {
+        console.log(response.data.message);
+        console.log(response.data.result);
+        navigate('/loading');
       }
     } catch (error) {
       console.error('Error submitting test:', error);
