@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { useRecoilState } from 'recoil';
-import { writePageStateAtom } from '@/store/atom';
 
+import { writePageStateAtom } from '@/store/atom';
 import Typography from '../Typography';
 
 const SaveButton = styled.button`

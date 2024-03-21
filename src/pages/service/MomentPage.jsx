@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
+
 import { momentPageStateAtom } from '@store/atom';
-
-import Message from '@components/Write/MessageList';
-
-import Moment from '@components/Moment/Moment';
+import Message from '@components/write/MessageList';
+import Moment from '@components/moment/Moment';
 
 function MomentPage() {
   const [pageName, setPageName] = useRecoilState(momentPageStateAtom);
