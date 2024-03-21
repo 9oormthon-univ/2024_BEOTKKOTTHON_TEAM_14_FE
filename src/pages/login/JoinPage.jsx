@@ -122,15 +122,15 @@ const JoinPage = () => {
 
   const handleSubmit = async () => {
     const formData = {
-      name: username,
       email: email,
-      password: password,
       phoneNumber: phonenumber,
+      name: username,
+      password: password,
     };
 
     try {
       const response = await axios.post(
-        `http://3.34.192.25/auth/register`,
+        `http://3.37.117.95:8080/auth/register`,
         formData
       );
       if (response.data.code === 201) {
