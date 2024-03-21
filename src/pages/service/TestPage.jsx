@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import TopBar from '@components/bar/TopBar';
 
@@ -106,18 +107,35 @@ const TestPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const navigate = useNavigate();
 
-  const nextQuestion = () => {
+  const handleAnswerClick = (answerIndex) => {
+    const updatedAnswers = { ...selectedAnswer };
+    updatedAnswers[`q${gauge + 1}`] = answerIndex;
+    setSelectedAnswer(updatedAnswers);
+
     if (gauge < questionData.length - 1) {
       setGauge(gauge + 1);
-      setSelectedAnswer(null);
     } else {
-      navigate('/result');
+      sendTestResults(updatedAnswers);
     }
   };
 
-  const handleAnswerClick = (answer) => {
-    setSelectedAnswer(answer);
-    nextQuestion();
+  const sendTestResults = async (updatedAnswers) => {
+    try {
+      const response = await axios.post('/api/ghostTest', updatedAnswers, {
+        headers: {
+          'Content-Type': 'application/json',
+          updatedAnswers,
+        },
+      });
+
+      if (response.data.code === 201) {
+        console.log(response.data.message);
+        console.log(response.data.result);
+        navigate('/loading');
+      }
+    } catch (error) {
+      console.error('Error submitting test:', error);
+    }
   };
 
   const questionData = [
@@ -186,6 +204,7 @@ const TestPage = () => {
           <span className="questionNum">
             {gauge + 1} / {questionData.length}
           </span>
+
           <GrayBar>
             <BlackBar width={(gauge + 1) * (100 / questionData.length)} />
           </GrayBar>
@@ -195,7 +214,7 @@ const TestPage = () => {
 
         <AnswerContainer>
           {questionData[gauge].answers.map((answer, index) => (
-            <Answer key={index} onClick={() => handleAnswerClick(answer)}>
+            <Answer key={index} onClick={() => handleAnswerClick(index)}>
               {answer}
             </Answer>
           ))}

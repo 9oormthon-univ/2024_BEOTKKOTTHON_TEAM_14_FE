@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Screen = styled.div`
   position: relative;
@@ -100,17 +101,51 @@ const Button = styled.div`
   font-weight: 600;
   line-height: normal;
 
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 `;
 
 const JoinPage = () => {
   const navigate = useNavigate();
 
-  const goBack = () => {
-    navigate('/start');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+
+  const isEmailValid = email.includes('@');
+  const isFormValid =
+    username.trim() !== '' &&
+    email.trim() !== '' &&
+    password.trim() !== '' &&
+    phonenumber.trim() !== '';
+
+  const handleJoin = async () => {
+    const formData = {
+      email: email,
+      phoneNumber: phonenumber,
+      name: username,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(`/api/auth/register`, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          formData,
+        },
+      });
+
+      if (response.data.code === 201) {
+        console.log(response.data.message);
+        navigate('/start');
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
   };
 
-  const goStart = () => {
+  const goBack = () => {
     navigate('/start');
   };
 
@@ -135,19 +170,41 @@ const JoinPage = () => {
       <p />
 
       <InputItem>Username</InputItem>
-      <InputForm placeholder="이름을 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Email</InputItem>
-      <InputForm placeholder="이메일을 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Password</InputItem>
-      <InputForm placeholder="비밀번호를 입력해주세요."></InputForm>
-      <p />
-      <InputItem>Phone number</InputItem>
-      <InputForm placeholder="전화번호를 입력해주세요."></InputForm>
+      <InputForm
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="이름을 입력해주세요."
+      />
       <p />
 
-      <Button onClick={goStart}>가입 완료</Button>
+      <InputItem>Email</InputItem>
+      <InputForm
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="plandeath@goorm.com"
+      />
+      <p />
+
+      <InputItem>Password</InputItem>
+      <InputForm
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="특수문자와 함께 5자 이상 입력해주세요."
+        type="password"
+      />
+      <p />
+
+      <InputItem>Phone number</InputItem>
+      <InputForm
+        value={phonenumber}
+        onChange={(e) => setPhonenumber(e.target.value)}
+        placeholder="010-0000-0000"
+      />
+      <p />
+
+      <Button onClick={handleJoin} disabled={!isEmailValid || !isFormValid}>
+        가입 완료
+      </Button>
     </Screen>
   );
 };
