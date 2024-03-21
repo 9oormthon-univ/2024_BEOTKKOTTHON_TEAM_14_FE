@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
 import TopBar from '@components/bar/TopBar';
+import Send from '@assets/send.png';
 
 function Chat() {
   const [chatList, setChatList] = useState([
@@ -35,6 +36,10 @@ function Chat() {
           }
         })}
       </div>
+        <div className='flex flex-row bg-[#575757]/40'>
+          <input className='w-[85%] m-[10px] h-[36px] rounded-[50px] px-[15px]'></input>
+          <img src={Send} className='object-contain'/>
+        </div>
     </>
   );
 }
