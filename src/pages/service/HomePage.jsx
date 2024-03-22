@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import home_logo from '@assets/home_logo.png';
@@ -122,9 +122,17 @@ const ButtonArea = styled.div`
 `;
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const [sessionIdExists, setSessionIdExists] = useState(false);
+
+  useEffect(() => {
+    const sessionId = document.cookie.includes('sessionId');
+    setSessionIdExists(sessionId);
+  }, []);
+
   const handleLogout = async () => {
     try {
-      const response = await axios.post('/api/auth/login');
+      const response = await axios.post('/api/auth/logout');
       if (response.data.code === 201) {
         console.log(response.data.message);
         navigate('/start');
@@ -167,7 +175,7 @@ const HomePage = () => {
           </MenuBox>
         </Link>
 
-        <Link to={`/`}>
+        <Link to={`/write`}>
           <MenuBox>
             <img src={home_6} />
             <span>
@@ -176,7 +184,7 @@ const HomePage = () => {
           </MenuBox>
         </Link>
 
-        <Link to={`/`}>
+        <Link to={`/message`}>
           <MenuBox>
             <img src={home_4} />
             <span>
@@ -184,29 +192,14 @@ const HomePage = () => {
             </span>
           </MenuBox>
         </Link>
-
-        <Link to={`/write`}>
-          <MenuBox>
-            <img src={home_3} />
-            <span>
-              <span className="bold">유서</span> <br /> 쓰러가기
-            </span>
-          </MenuBox>
-        </Link>
-
-        <Link to={`/`}>
-          <MenuBox>
-            <img src={home_7} />
-            <span>
-              <span className="bold">Q&A</span> <br /> 나에 대하여
-            </span>
-          </MenuBox>
-        </Link>
       </MenuArea>
       <br />
-      <ButtonArea /*onClick={handleLogout}*/>
-        <button>로그아웃</button>
-      </ButtonArea>
+
+      {sessionIdExists && (
+        <ButtonArea onClick={handleLogout}>
+          <button>로그아웃</button>
+        </ButtonArea>
+      )}
 
       <br />
     </Screen>
