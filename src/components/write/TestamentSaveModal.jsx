@@ -1,9 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { useRecoilState } from 'recoil';
 
-import { writePageStateAtom } from '@/store/atom';
 import Typography from '../Typography';
+import { useNavigate } from 'react-router-dom';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -21,8 +20,7 @@ const SaveButton = styled.button`
 `;
 
 function TestamentSaveModal({ setSaveBtnClick }) {
-  const [pageName, setPageName] = useRecoilState(writePageStateAtom);
-
+  const navigate = useNavigate();
   return (
     <div className="bg-[black]/10 absolute left-0 top-0 w-[100%] h-[100vh]">
       <div className="text-center w-[70%] bg-[white] rounded-[20px] pt-[30px] absolute m-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -32,7 +30,7 @@ function TestamentSaveModal({ setSaveBtnClick }) {
           <SaveButton
             onClick={() => {
               setSaveBtnClick(false);
-              setPageName('write');
+              navigate('/write');
             }}
           >
             확인

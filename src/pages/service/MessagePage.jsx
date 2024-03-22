@@ -1,5 +1,5 @@
 import React from 'react';
-import Message from '@components/write/Message';
+import Message from '@components/write/MessageList';
 
 function MessagePage() {
   return (

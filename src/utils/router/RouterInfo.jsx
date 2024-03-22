@@ -13,6 +13,9 @@ import RecordPage from '@pages/service/RecordPage';
 import TestPage from '@pages/test/TestPage';
 import LoadingPage from '@pages/test/LoadingPage';
 import ResultPage from '@pages/test/ResultPage';
+import MessagePage from '@pages/service/MessagePage';
+import TestamentPage from '@pages/service/TestamentPage';
+import QuestionPage from '@pages/service/QuestionPage';
 
 export const RouterInfo = [
   {
@@ -54,6 +57,18 @@ export const RouterInfo = [
       {
         path: 'loading',
         element: <LoadingPage />,
+      },
+      {
+        path: 'message',
+        element: <MessagePage />,
+      },
+      {
+        path: 'testament',
+        element: <TestamentPage />,
+      },
+      {
+        path: 'question',
+        element: <QuestionPage />,
       },
       {
         path: 'result/:resultNum',
