@@ -19,9 +19,12 @@ const ComputerImg = styled.img`
   border-radius: 10px;
   background-color: white;
   margin-bottom: 20px;
+  cursor: pointer;
 `; 
 
 function ComputerChat({ type, content }) {
+  const onImageClick = (url) => window.open(url, '_blank').focus();
+
   return (
     <>
       <div className="flex items-start">
@@ -30,7 +33,7 @@ function ComputerChat({ type, content }) {
           type == 'text' ?
           <Computer>{content}</Computer>
           :
-          <ComputerImg src={content} />
+          <ComputerImg onClick={() => onImageClick(content)} src={content} />
         }
       </div>
     </>

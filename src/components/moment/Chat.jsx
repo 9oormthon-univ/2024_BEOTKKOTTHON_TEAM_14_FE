@@ -64,17 +64,16 @@ function Chat() {
         addNextChat(1)
       }, 1500)
 
-      axios.get(`/api/api/v1/image?prompt=${userInput}` , {
-        // params: {
-        //   prompt: userInput
-        // }
-      }).then((res) => {
-          console.log(res);
+      axios.get(`/api/api/v1/image?prompt=${userInput}`)
+      .then((res) => {
           setChatList(org => [...org, {
             speaker: 'computer',
             type: 'img',
             content: res.data.url,
           }]);
+          setTimeout(() => {
+            addNextChat(2)
+          }, 1500)    
       });
     }
   }
