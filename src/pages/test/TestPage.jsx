@@ -129,10 +129,8 @@ const TestPage = () => {
       });
 
       if (response.data.code === 201) {
-        console.log(response.data.message);
-        console.log(response.data.result);
-
-        navigate(`/result/${response.data.result}`);
+        console.log(response.data.message, response.data.result);
+        navigate(`/loading`, { state: { result: response.data.result } });
       }
     } catch (error) {
       console.error('Error submitting test:', error);
