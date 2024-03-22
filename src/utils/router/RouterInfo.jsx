@@ -56,7 +56,7 @@ export const RouterInfo = [
         element: <LoadingPage />,
       },
       {
-        path: 'result',
+        path: 'result/:resultNum',
         element: <ResultPage />,
       },
     ],
