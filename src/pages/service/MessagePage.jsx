@@ -1,12 +1,12 @@
-import React from 'react'
-import Message from '@components/Write/Message';
+import React from 'react';
+import Message from '@components/write/Message';
 
 function MessagePage() {
   return (
     <>
-        <Message/>
+      <Message />
     </>
-  )
+  );
 }
 
-export default MessagePage
+export default MessagePage;
