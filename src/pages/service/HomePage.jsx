@@ -124,7 +124,7 @@ const ButtonArea = styled.div`
 const HomePage = () => {
   const handleLogout = async () => {
     try {
-      const response = await axios.post(`/api/auth/login`);
+      const response = await axios.post('/api/auth/login');
       if (response.data.code === 201) {
         console.log(response.data.message);
         navigate('/start');
