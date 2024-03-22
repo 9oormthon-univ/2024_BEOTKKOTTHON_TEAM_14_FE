@@ -23,6 +23,10 @@ export const RouterInfo = [
     element: <Layout />,
     children: [
       {
+        index: true,
+        element: <StartPage />,
+      },
+      {
         path: 'start',
         element: <StartPage />,
       },
