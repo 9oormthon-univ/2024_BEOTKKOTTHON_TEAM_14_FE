@@ -33,7 +33,7 @@ const Logo = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 
   color: #fff;
   font-family: Pretendard;
