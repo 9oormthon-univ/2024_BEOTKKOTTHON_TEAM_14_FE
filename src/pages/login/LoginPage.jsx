@@ -124,7 +124,8 @@ const LoginPage = () => {
           formData,
         },
       });
-      if (response.data.code === 201) {
+      if (response.data.code === 200) {
+        console.log(response.data.message);
         navigate('/home');
       }
     } catch (error) {
