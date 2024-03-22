@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 const User = styled.div`
   width: 210px;
   border-radius: 10px;
-  background-color: #f7ecff;
+  background-color: #F3EDE0;
   color: black;
   padding: 10px 15px;
   font-size: 15px;

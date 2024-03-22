@@ -3,8 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import TopBar from '@components/bar/TopBar';
-
 import { GhostInfo } from '@utils/test/GhostInfo.jsx';
+import card_bar from '@assets/test/card_bar.png';
 
 const fadeInOut = keyframes`
   0% {
@@ -80,6 +80,12 @@ const CardContainer = styled.div`
     animation: ${fadeInOut} 3s infinite;
   }
 
+  .bar {
+    width: 16.26781rem;
+    height: 1.58031rem;
+    z-index: 10;
+  }
+
   .keyword {
     z-index: 10;
   }
@@ -118,6 +124,9 @@ const ResultPage = () => {
             className="icon"
             src={GhostInfo[resultNum][0][`image${imageIndex}`]}
           />
+
+          <img className="bar" src={card_bar} />
+
           <span className="keyword">{GhostInfo[resultNum][0].keyword}</span>
           <span className="description">
             {GhostInfo[resultNum][0].description}

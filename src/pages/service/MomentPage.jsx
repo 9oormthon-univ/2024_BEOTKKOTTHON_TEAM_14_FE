@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { momentPageStateAtom } from '@store/atom';
-import Message from '@components/write/MessageList';
 import Moment from '@components/moment/Moment';
+import AI from '@components/moment/AI';
 
 function MomentPage() {
   const [pageName, setPageName] = useRecoilState(momentPageStateAtom);
@@ -12,8 +12,8 @@ function MomentPage() {
     if (pageName == 'moment') {
       return <Moment />;
     }
-    if (pageName == 'message') {
-      return <Message />;
+    if (pageName == 'ai') {
+      return <AI />;
     }
   };
 
