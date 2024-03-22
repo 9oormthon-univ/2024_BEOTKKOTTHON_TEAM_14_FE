@@ -37,7 +37,7 @@ function Write() {
         </div>
 
         {/* 유서쓰기 */}
-        <ContentBox onClick={() => navigate('/testament')}>
+        <ContentBox onClick={() => document.startViewTransition(() => navigate('/testament'))}>
           <div className="w-[25%] mx-[25px]">
             <img src={home5} />
           </div>
@@ -51,7 +51,7 @@ function Write() {
         </ContentBox>
 
         {/* 유서쓰기 */}
-        <ContentBox onClick={() => navigate('/question')}>
+        <ContentBox onClick={() => document.startViewTransition(() => navigate('/question'))}>
           <div className="w-[25%] mx-[25px]">
             <img src={home7} />
           </div>

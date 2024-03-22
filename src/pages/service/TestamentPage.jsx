@@ -4,7 +4,7 @@ import Testament from '@components/write/Testament';
 function TestamentPage() {
   return (
     <>
-      <Testament />
+      <Testament className="view-page" />
     </>
   );
 }
