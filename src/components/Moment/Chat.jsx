@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-
+import { styled } from 'styled-components';
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
 import TopBar from '@components/bar/TopBar';
 import Send from '@assets/send.png';
+
+const ChatScreen = styled.div`
+  background-color: black;
+  width: 100%;
+  height: calc(100vh - 106px);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`
 
 function Chat() {
   const [chatList, setChatList] = useState([
@@ -27,7 +37,7 @@ function Chat() {
   return (
     <>
       <TopBar />
-      <div className="bg-[#00000f] text-[white] w-[100%] h-[100vh] p-[28px] flex flex-col justify-end">
+      <ChatScreen >
         {chatList.map((item) => {
           if (item.type === 'computer') {
             return <ComputerChat content={item.content} />;
@@ -35,7 +45,7 @@ function Chat() {
             return <UserChat content={item.content} />;
           }
         })}
-      </div>
+      </ChatScreen>
         <div className='flex flex-row bg-[#575757]/40'>
           <input className='w-[85%] m-[10px] h-[36px] rounded-[50px] px-[15px]'></input>
           <img src={Send} className='object-contain'/>
