@@ -48,7 +48,7 @@ const LoadingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate(`/result/${resultNum}`);
-    }, 3500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
