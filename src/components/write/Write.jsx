@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Typography from '../Typography';
-import home4 from '@assets/home_4.png';
 import home5 from '@assets/home_5.png';
 import home7 from '@assets/home_7.png';
 import logo from '@assets/logoChar.png';
@@ -36,20 +35,6 @@ function Write() {
         <div className="text-[white] italic">
           {/* <Typography title={'MY RECORD'} type={'bold30'} /> */}
         </div>
-
-        {/* 편지쓰기 */}
-        <ContentBox onClick={() => navigate('/message')}>
-          <div className="w-[25%] mx-[25px]">
-            <img src={home4} />
-          </div>
-          <div className="flex flex-col">
-            <div className="items-center text-[20px] italic mb-[5px]">
-              <Typography title={'Dear Mine'} type={'bold20'} />
-            </div>
-            <Typography title={'사랑하는 사람에게 '} type={'regular15'} />
-            <Typography title={'편지를 남기세요.'} type={'regular15'} />
-          </div>
-        </ContentBox>
 
         {/* 유서쓰기 */}
         <ContentBox onClick={() => navigate('/testament')}>

@@ -14,12 +14,24 @@ const Computer = styled.div`
   margin-bottom: 20px;
 `;
 
-function ComputerChat({ content }) {
+const ComputerImg = styled.img`
+  width: 210px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+`; 
+
+function ComputerChat({ type, content }) {
   return (
     <>
       <div className="flex items-start">
         <img src={profile} className="object-contain mr-[10px]" />
-        <Computer>{content}</Computer>
+        {
+          type == 'text' ?
+          <Computer>{content}</Computer>
+          :
+          <ComputerImg src={content} />
+        }
       </div>
     </>
   );
