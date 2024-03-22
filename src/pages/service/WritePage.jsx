@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { writePageStateAtom } from '@store/atom';
-import Message from '@components/Write/MessageList';
-import Write from '@components/Write/Write';
-import Testament from '@components/Write/Testament';
-import Question from '@components/Write/Question';
+import Message from '@components/write/MessageList';
+import Write from '@components/write/Write';
+import Testament from '@components/write/Testament';
+import Question from '@components/write/Question';
 
 function WritePage() {
   const [pageName, setPageName] = useRecoilState(writePageStateAtom);

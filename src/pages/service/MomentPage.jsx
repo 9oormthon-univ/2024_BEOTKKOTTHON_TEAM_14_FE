@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { momentPageStateAtom } from '@store/atom';
-import Moment from '@components/Moment/Moment';
-import AI from '@components/Moment/AI';
+import Moment from '@components/moment/Moment';
+import AI from '@components/moment/AI';
 
 function MomentPage() {
   const [pageName, setPageName] = useRecoilState(momentPageStateAtom);

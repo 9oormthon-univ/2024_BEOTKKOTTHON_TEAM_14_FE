@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { recordPageStateAtom } from '@store/atom';
-import Testament from '@components/Write/Testament';
-import Record from '@components/Write/Record';
-import Question from '@components/Write/Question';
+import Testament from '@components/write/Testament';
+import Record from '@components/write/Record';
+import Question from '@components/write/Question';
 
 function RecordPage() {
   const [pageName, setPageName] = useRecoilState(recordPageStateAtom);
