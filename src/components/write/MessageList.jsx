@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography';
 import Message from './Message';
 import MessageInput from './MessageInput';
 import heart from '@assets/heartMessage.png'
+import axios from 'axios';
 
 const SaveButton = styled.button`
   margin: 30px 0;
@@ -23,20 +24,27 @@ const SaveButton = styled.button`
 
 function MessageList() {
   const [addMessage, setAddMessage] = useState(false);
-  const testdata = [
-    {
-      title: '짱구에게',
-      text: '그동안 고마웠어',
-    },
-    {
-      title: '훈이에게',
-      text: '그동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자',
-    },
-    {
-      title: '철수야',
-      text: '나때문에 울지마',
-    },
-  ];
+  const [messageContent, setMessageContent] = useState([]);
+  // const testdata = [
+  //   {
+  //     title: '짱구에게',
+  //     text: '그동안 고마웠어',
+  //   },
+  //   {
+  //     title: '훈이에게',
+  //     text: '그동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자 동안 행복했어 정말 또 만나자',
+  //   },
+  //   {
+  //     title: '철수야',
+  //     text: '나때문에 울지마',
+  //   },
+  // ];
+  useEffect(()=>{
+    axios.get('http://3.37.117.95:8080/messages')
+    .then((res)=>{
+      setMessageContent(res.data.result)
+    })
+  },[])
   return (
     <>
       {addMessage ? (
@@ -52,8 +60,8 @@ function MessageList() {
             type={'regular15'}
           />
           <div className="grid grid-rows-2 grid-cols-2 gap-[15px] mt-[30px]">
-            {testdata.map((data) => {
-              return <Message title={data.title} text={data.text} />;
+            {messageContent.map((item) => {
+              return <Message title={item.receiver} text={item.message} />;
             })}
           </div>
           <div className="flex justify-center mt-[10px]">
