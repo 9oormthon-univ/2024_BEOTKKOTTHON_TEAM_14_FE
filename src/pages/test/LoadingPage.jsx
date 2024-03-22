@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import FadeLoader from 'react-spinners/FadeLoader';
 
 import TopBar from '@components/bar/TopBar';
@@ -42,11 +42,13 @@ const Container = styled.div`
 
 const LoadingPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const resultNum = location.state.result;
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/result');
-    }, 3500);
+      navigate(`/result/${resultNum}`);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
