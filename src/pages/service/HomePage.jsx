@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import home_logo from '@assets/home_logo.png';
 import home_1 from '@assets/home_1.png';
@@ -119,6 +120,18 @@ const ButtonArea = styled.div`
 `;
 
 const HomePage = () => {
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(`/api/auth/login`);
+      if (response.data.code === 201) {
+        console.log(response.data.message);
+        navigate('/start');
+      }
+    } catch (error) {
+      console.error('Error login:', error);
+    }
+  };
+
   return (
     <Screen>
       <Logo>
