@@ -97,7 +97,7 @@ function MessageInput({ setAddMessage }) {
         <SaveButton
           onClick={() => {
             axios
-              .post('http://3.37.117.95:8080/messages/create', {
+              .post('/api/messages/create', {
                 receiver: title, //편지받는사람
                 message: message, //편지내용
               })

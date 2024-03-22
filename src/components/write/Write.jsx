@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
 
-import { writePageStateAtom } from '@store/atom';
 import Typography from '../Typography';
 import home4 from '@assets/home_4.png';
 import home5 from '@assets/home_5.png';
 import home7 from '@assets/home_7.png';
 import logo from '@assets/logoChar.png';
 import TopBar from '@components/bar/TopBar';
+import { useNavigate } from 'react-router-dom';
 
 const ContentBox = styled.div`
   height: 130px;
@@ -25,8 +24,8 @@ const ContentBox = styled.div`
 `;
 
 function Write() {
-  const [writePageState, setWritePageState] =
-    useRecoilState(writePageStateAtom);
+  const navigate = useNavigate();
+  
   return (
     <>
       <TopBar />
@@ -39,7 +38,7 @@ function Write() {
         </div>
 
         {/* 편지쓰기 */}
-        <ContentBox onClick={() => setWritePageState('message')}>
+        <ContentBox onClick={() => navigate('/message')}>
           <div className="w-[25%] mx-[25px]">
             <img src={home4} />
           </div>
@@ -53,7 +52,7 @@ function Write() {
         </ContentBox>
 
         {/* 유서쓰기 */}
-        <ContentBox onClick={() => setWritePageState('testament')}>
+        <ContentBox onClick={() => navigate('/testament')}>
           <div className="w-[25%] mx-[25px]">
             <img src={home5} />
           </div>
@@ -67,7 +66,7 @@ function Write() {
         </ContentBox>
 
         {/* 유서쓰기 */}
-        <ContentBox onClick={() => setWritePageState('question')}>
+        <ContentBox onClick={() => navigate('/question')}>
           <div className="w-[25%] mx-[25px]">
             <img src={home7} />
           </div>
