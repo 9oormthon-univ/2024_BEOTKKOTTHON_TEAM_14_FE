@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography';
 import Message from './Message';
 import MessageInput from './MessageInput';
-import heart from '@assets/heartMessage.png'
+import heart from '@assets/heartMessage.png';
 import axios from 'axios';
 
 const SaveButton = styled.button`
@@ -17,8 +17,8 @@ const SaveButton = styled.button`
   width: 100px;
   height: 36px;
   align-items: center;
-  &:hover{
-    background-color: #3A3A3A;
+  &:hover {
+    background-color: #3a3a3a;
   }
 `;
 
@@ -39,20 +39,19 @@ function MessageList() {
   //     text: '나때문에 울지마',
   //   },
   // ];
-  useEffect(()=>{
-    axios.get('http://3.37.117.95:8080/messages')
-    .then((res)=>{
-      setMessageContent(res.data.result)
-    })
-  },[])
+  useEffect(() => {
+    axios.get('/api/messages').then((res) => {
+      setMessageContent(res.data.result);
+    });
+  }, []);
   return (
     <>
       {addMessage ? (
         <MessageInput setAddMessage={setAddMessage} />
       ) : (
         <div className="p-[28px] bg-[black] h-[100vh] text-[white]">
-          <div className='ml-[120px] mb-[10px] w-[30%]'>
-            <img src={heart}/>
+          <div className="ml-[120px] mb-[10px] w-[30%]">
+            <img src={heart} />
           </div>
           <Typography title={'나의 소중한 사람에게'} type={'bold30'} />
           <Typography
