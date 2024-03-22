@@ -89,6 +89,35 @@ const MenuBox = styled.div`
   }
 `;
 
+const ButtonArea = styled.div`
+  width: 100%;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 7.0625rem;
+    height: 2.75rem;
+
+    border-radius: 3.125rem;
+    border: 1px solid #fff;
+    background: none;
+
+    color: #fff;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    cursor: pointer;
+  }
+`;
+
 const HomePage = () => {
   return (
     <Screen>
@@ -168,6 +197,10 @@ const HomePage = () => {
         </Link>
       </MenuArea>
       <br />
+      <ButtonArea /*onClick={handleLogout}*/>
+        <button>로그아웃</button>
+      </ButtonArea>
+
       <br />
     </Screen>
   );
