@@ -173,11 +173,16 @@ const SideBar = () => {
       <NavLink
         to={`/write`}
         className={({ isActive }) =>
-          isActive || location.pathname === `/` ? 'active' : 'inactive'
+          isActive ||
+          location.pathname === `/` ||
+          location.pathname === `/testament` ||
+          location.pathname === `/question`
+            ? 'active'
+            : 'inactive'
         }
       >
         <MenuContainer>
-          <span>유서 쓰기</span>
+          <span>나의 이야기 기록하기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11"
@@ -206,13 +211,13 @@ const SideBar = () => {
       </NavLink>
 
       <NavLink
-        to={`/`}
+        to={`/message`}
         className={({ isActive }) =>
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
         <MenuContainer>
-          <span>마지막 편지</span>
+          <span>메시지 쓰러가기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11"
