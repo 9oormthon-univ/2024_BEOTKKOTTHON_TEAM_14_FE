@@ -5,20 +5,6 @@ import Typography from '../Typography';
 import TestamentSaveModal from './TestamentSaveModal';
 import TopBar from '@components/bar/TopBar';
 
-const SaveButton = styled.button`
-  margin-top: 20px;
-  border-radius: 50px;
-  display: flex;
-  color: white;
-  background-color: black;
-  font-size: 15px;
-  gap: 10px;
-  width: 100px;
-  height: 30px;
-  margin-bottom: 16px;
-  justify-content: center;
-  align-items: center;
-`;
 const Screen = styled.div`
   position: relative;
   width: 100%;
@@ -30,6 +16,8 @@ const Screen = styled.div`
   gap: 2rem;
 
   background: #fff;
+
+  overflow: auto;
 `;
 
 const ImgBtn = styled.div`
@@ -59,13 +47,28 @@ const ImageBox = styled.div`
   object-fit: cover;
 `;
 
+const SaveButton = styled.button`
+  margin-top: 20px;
+  border-radius: 50px;
+  display: flex;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  gap: 10px;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 16px;
+  justify-content: center;
+  align-items: center;
+`;
+
 function Testament() {
   const [myTestament, setMyTestament] = useState('');
   const [saveBtnClick, setSaveBtnClick] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const imageInputRef = useRef(null);
 
-  const handleImageChange = (event) => {
+  const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -98,11 +101,7 @@ function Testament() {
         ></textarea>
         <div className="mt-[20px]">
           <Typography
-            title={'법적으로 유서에는 작성자의 이름과 주소, 날인이 '}
-            type={'regular15'}
-          />
-          <Typography
-            title={'들어가야 합니다. 날인을 업로드해주세요.'}
+            title={'서명을 업로드하면 디지털 증거로 사용할 수 있습니다.'}
             type={'regular15'}
           />
         </div>
@@ -124,9 +123,10 @@ function Testament() {
             accept="image/*"
             style={{ display: 'none' }}
             ref={imageInputRef}
-            onChange={handleImageChange}
+            onChange={handleImageUpload}
           />
         </Screen>
+
         <div className="flex justify-center">
           <SaveButton
             onClick={() => {

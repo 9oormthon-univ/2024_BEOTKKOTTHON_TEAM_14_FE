@@ -6,9 +6,9 @@ import Message from './Message';
 import MessageInput from './MessageInput';
 import heart from '@assets/heartMessage.png';
 import axios from 'axios';
-import TopBar from '@components/bar/TopBar'
+import TopBar from '@components/bar/TopBar';
 
-const SaveButton = styled.button`
+const SaveButton = styled.div`
   margin: 30px 0;
   border-radius: 50px;
   display: flex;
@@ -17,10 +17,11 @@ const SaveButton = styled.button`
   font-size: 18px;
   width: 100px;
   height: 36px;
+  display: flex;
   align-items: center;
-  &:hover {
-    background-color: #3a3a3a;
-  }
+  justify-content: center;
+
+  cursor: pointer;
 `;
 
 function MessageList() {
@@ -47,7 +48,7 @@ function MessageList() {
   }, [addMessage]);
   return (
     <>
-      <TopBar/>
+      <TopBar />
       {addMessage ? (
         <MessageInput setAddMessage={setAddMessage} />
       ) : (

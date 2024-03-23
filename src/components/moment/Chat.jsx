@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
+import axios from 'axios';
+
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
 import TopBar from '@components/bar/TopBar';
 import Send from '@assets/send.png';
-import axios from 'axios';
-import { flushSync } from 'react-dom';
 
 const ChatScreen = styled.div`
-  background-color: black;
+  background-color: yellow;
   width: 100%;
   height: calc(100vh - 106px);
   padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-`
+
+  overflow: auto;
+`;
 
 const computerChat = [
   {
     speaker: 'computer',
     type: 'text',
     content:
-      '이용자 님 만나서 반갑습니다. 가장 기억하고 싶은 행복한 순간을 자세히 적어주세요.',
+      '이용자님 만나서 반갑습니다. 가장 기억하고 싶은 행복한 순간을 자세히 적어주세요.',
   },
   {
     speaker: 'computer',
@@ -36,62 +38,62 @@ const computerChat = [
     content:
       '이용해주셔서 감사합니다. 이용자님의 삶에 행복한 순간이 가득하시길 바랍니다!',
   },
-]
+];
 
 function Chat() {
   const [chatList, setChatList] = useState([]);
   const [inputEnabled, setInputEnabled] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [computerChatIndex, setComputerChatIndex] = useState(0);
-  
+
   let chatInterval = null;
 
   const addNextChat = (chatIndex) => {
-    setChatList(org => [...org, computerChat[chatIndex]]);
-  }
+    setChatList((org) => [...org, computerChat[chatIndex]]);
+  };
 
   const onSendClick = () => {
     if (inputEnabled) {
-      setChatList(org => [...org, {
-        speaker: 'user',
-        type: 'text',
-        content: userInput,
-      }])
+      setChatList((org) => [
+        ...org,
+        {
+          speaker: 'user',
+          type: 'text',
+          content: userInput,
+        },
+      ]);
 
-      setUserInput("");
+      setUserInput('');
       setInputEnabled(false);
       setTimeout(() => {
-        addNextChat(1)
-      }, 1500)
+        addNextChat(1);
+      }, 1500);
 
-      axios.get(`/api/api/v1/image?prompt=${userInput}`)
-      .then((res) => {
-          setChatList(org => [...org, {
+      axios.get(`/api/api/v1/image?prompt=${userInput}`).then((res) => {
+        setChatList((org) => [
+          ...org,
+          {
             speaker: 'computer',
             type: 'img',
             content: res.data.url,
-          }]);
-          setTimeout(() => {
-            addNextChat(2)
-          }, 1500)    
+          },
+        ]);
+        setTimeout(() => {
+          addNextChat(2);
+        }, 1500);
       });
     }
-  }
-  
-  // chatInterval = setInterval(() => {
-  //   if (computerChatIndex ==)
-  //   setChatList(org => [...org, computerChat[computerChatIndex]]);
-  //   computerChatIndex++;
-  // }, 1000);
+  };
+
   useEffect(() => {
     setTimeout(() => {
-      addNextChat(0)
+      addNextChat(0);
       setInputEnabled(true);
-    }, 500)
+    }, 500);
 
-    return (() => {
+    return () => {
       clearInterval(chatInterval);
-    })
+    };
   }, []);
 
   useEffect(() => {
@@ -101,7 +103,7 @@ function Chat() {
   return (
     <>
       <TopBar />
-      <ChatScreen >
+      <ChatScreen>
         {chatList.map((item) => {
           if (item.speaker === 'computer') {
             return <ComputerChat type={item.type} content={item.content} />;
@@ -110,21 +112,19 @@ function Chat() {
           }
         })}
       </ChatScreen>
-        <div className='flex flex-row bg-[#575757]/40'>
-          <input 
-            className='w-[85%] m-[10px] h-[36px] rounded-[50px] px-[15px]' 
-            disabled={!inputEnabled} 
+
+      <div className="flex flex-row bg-[#575757]/40">
+        {inputEnabled && (
+          <input
+            className="w-[85%] m-[10px] h-[36px] rounded-[50px] px-[15px]"
             value={userInput}
             onChange={(e) => {
-              if (e.target.value.length < 51) setUserInput(e.target.value )
+              if (e.target.value.length < 51) setUserInput(e.target.value);
             }}
           />
-          <img 
-            className='object-contain'
-            src={Send} 
-            onClick={onSendClick}
-          />
-        </div>
+        )}
+        <img className="object-contain" src={Send} onClick={onSendClick} />
+      </div>
     </>
   );
 }
