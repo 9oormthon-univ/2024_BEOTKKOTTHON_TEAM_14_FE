@@ -14,7 +14,7 @@ const ChatScreen = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
+  background: black;
   overflow: auto;
 `;
 
