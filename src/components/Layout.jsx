@@ -77,10 +77,10 @@ function Layout() {
             <img src={home_logo} className="logo" />
             {/* 로고 이미지 경로 */}
           </Logo>
-          <h3 className="logo__description">나의 죽음을 기획해보세요.</h3>
+          <h3 className="logo__description">나의 내일을 기획해보세요.</h3>
         </LogoContainer>
       )}
-      <ContentContainer className='view-page'>
+      <ContentContainer className="view-page">
         <Outlet />
       </ContentContainer>
 
