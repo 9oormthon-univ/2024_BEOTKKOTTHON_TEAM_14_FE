@@ -8,7 +8,6 @@ import TopBar from '@components/bar/TopBar';
 import Send from '@assets/send.png';
 
 const ChatScreen = styled.div`
-  background-color: yellow;
   width: 100%;
   height: calc(100vh - 106px);
   padding: 28px;
