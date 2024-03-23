@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
+
+const slideInAnimation = keyframes`
+from {
+  transform: translateX(100%);
+}
+to {
+  transform: translateX(0);
+}
+`;
 
 const Container = styled.div`
   position: fixed;
@@ -26,6 +35,8 @@ const Container = styled.div`
   .active {
     opacity: 1;
   }
+
+  animation: ${slideInAnimation} 0.3s ease forwards;
 `;
 
 const MenuContainer = styled.div`
