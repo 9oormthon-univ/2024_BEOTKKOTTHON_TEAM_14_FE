@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { momentPageStateAtom } from '@store/atom';
 
 import logo from '@assets/logo.png';
 import Ai from '@assets/test/ai.png';
-import TopBar from '@components/bar/TopBar'
-
-import { useRecoilState } from 'recoil';
-import { momentPageStateAtom } from '@store/atom';
+import TopBar from '@components/bar/TopBar';
 
 const Screen = styled.div`
   position: relative;
@@ -31,7 +30,7 @@ const Screen = styled.div`
   line-height: 1.875rem; /* 150% */
 
   .logo {
-    margin-top: 6.38rem;
+    margin-top: 3.38rem;
 
     width: 18rem;
     height: 7rem;
@@ -69,26 +68,26 @@ const Button = styled.div`
     background: #5a5a5a;
   }
 `;
+
 function AI() {
-    const [writePageState, setWritePageState] = useRecoilState(momentPageStateAtom);
-    return (
-        <>
-            <TopBar/>
-            <Screen>
-                <img className="logo" src={logo} />
-                <span>
-                    당신의 내일을 상상해보세요.
-                </span>
-                <div className='my-[30px]'>
-                    <img className="ghost3D" src={Ai} />
-                </div>
+  const [writePageState, setWritePageState] =
+    useRecoilState(momentPageStateAtom);
+  return (
+    <Screen>
+      <TopBar />
 
-                <Button onClick={() => setWritePageState('moment')}>▶ 대화 시작하기</Button>
+      <img className="logo" src={logo} />
+      <span>당신의 내일을 상상해보세요.</span>
 
-            </Screen>
-        </>
-    );
+      <div className="my-[30px]">
+        <img className="ghost3D" src={Ai} />
+      </div>
+
+      <Button onClick={() => setWritePageState('moment')}>
+        ▶ 대화 시작하기
+      </Button>
+    </Screen>
+  );
 }
 
-
-export default AI
+export default AI;
