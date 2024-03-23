@@ -31,7 +31,7 @@ function TestamentSaveModal({ myTestament, selectedImage, setSaveBtnClick }) {
     <div className="bg-[black]/10 absolute left-0 top-0 w-[100%] h-[100vh]">
       <div className="text-center w-[70%] bg-[white] rounded-[20px] pt-[30px] absolute m-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <Typography title={'작성 완료'} type={'bold30'} />
-        <Typography title={'유서를 저장하시겠습니까?'} type={'bold15'} />
+        <Typography title={'저장하시겠습니까?'} type={'bold15'} />
         <div className="flex justify-center mt-[10px]">
           <SaveButton
             onClick={() => {

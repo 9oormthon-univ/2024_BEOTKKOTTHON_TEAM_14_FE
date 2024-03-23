@@ -31,8 +31,8 @@ function Record() {
           <div className="items-center text-[20px] italic mb-[5px]">
             <Typography title={'My Testament'} type={'bold20'} />
           </div>
-          <Typography title={'당신만의 유서를 '} type={'regular15'} />
-          <Typography title={'작성하세요.'} type={'regular15'} />
+          <Typography title={'당신만의 흔적을 '} type={'regular15'} />
+          <Typography title={'남겨보세요.'} type={'regular15'} />
         </div>
       </div>
 

@@ -83,7 +83,7 @@ function Testament() {
     <>
       <TopBar />
       <div className="relative p-[28px]">
-        <Typography title={'나의 유서 작성하기'} type={'bold30'} />
+        <Typography title={'나의 흔적 남기기'} type={'bold30'} />
         <div className="my-[10px]">
           <Typography
             title={'인생에서 가장 하고 싶은 말을 적어주세요. '}
@@ -93,7 +93,7 @@ function Testament() {
 
         <textarea
           className="bg-[#F5F5F5] w-[100%] h-[250px] rounded-[10px] p-[20px] text-start mt-[10px] mb-[10px] resize-none outline-none"
-          placeholder="이 곳에 유서를 작성해 주세요."
+          placeholder="이 곳에 흔적을 남겨주세요."
           value={myTestament}
           onChange={(e) => {
             setMyTestament(e.target.value);

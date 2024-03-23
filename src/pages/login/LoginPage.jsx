@@ -126,7 +126,7 @@ const LoginPage = () => {
       });
       if (response.data.code === 200) {
         console.log(response.data.message);
-        navigate('/home');
+        document.startViewTransition(() => navigate('/home'));
       }
     } catch (error) {
       console.error('Error login:', error);

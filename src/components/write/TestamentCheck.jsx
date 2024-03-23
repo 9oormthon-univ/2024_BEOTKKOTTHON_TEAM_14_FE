@@ -31,7 +31,7 @@ function TestamentCheck({ signature, answerFree }) {
     <>
       <TopBar />
       <div className="relative p-[28px]">
-        <Typography title={'나의 유서'} type={'bold30'} />
+        <Typography title={'나의 흔적'} type={'bold30'} />
         <div className="my-[10px]">
           <Typography
             title={'당신이 세상에 남기는 마지막 이야기입니다.'}

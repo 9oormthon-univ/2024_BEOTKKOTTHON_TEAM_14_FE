@@ -25,7 +25,7 @@ const ContentBox = styled.div`
 
 function Write() {
   const navigate = useNavigate();
-  
+
   return (
     <>
       <TopBar />
@@ -33,12 +33,13 @@ function Write() {
         <div className="ml-[45px] w-[80%] pb-[20px]">
           <img src={logo} className="" />
         </div>
-        <div className="text-[white] italic">
-          {/* <Typography title={'MY RECORD'} type={'bold30'} /> */}
-        </div>
+        <div className="text-[white] italic"></div>
 
-        {/* 유서쓰기 */}
-        <ContentBox onClick={() => document.startViewTransition(() => navigate('/testament'))}>
+        <ContentBox
+          onClick={() =>
+            document.startViewTransition(() => navigate('/testament'))
+          }
+        >
           <div className="w-[25%] mx-[20px]">
             <img src={home5} />
           </div>
@@ -46,12 +47,18 @@ function Write() {
             <div className="items-center text-[20px] italic mb-[5px]">
               <Typography title={'My Testament'} type={'bold20'} />
             </div>
-            <Typography title={'당신만의 유서를 작성하세요.'} type={'regular15'} />
+            <Typography
+              title={'당신만의 흔적을 남겨보세요.'}
+              type={'regular15'}
+            />
           </div>
         </ContentBox>
 
-        {/* 유서쓰기 */}
-        <ContentBox onClick={() => document.startViewTransition(() => navigate('/question'))}>
+        <ContentBox
+          onClick={() =>
+            document.startViewTransition(() => navigate('/question'))
+          }
+        >
           <div className="w-[25%] mx-[20px]">
             <img src={home7} />
           </div>

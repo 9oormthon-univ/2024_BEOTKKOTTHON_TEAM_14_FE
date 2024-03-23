@@ -141,7 +141,7 @@ const HomePage = () => {
 
         document.cookie =
           'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        navigate('/start');
+        document.startViewTransition(() => navigate('/start'));
       }
     } catch (error) {
       console.error('Error login:', error);

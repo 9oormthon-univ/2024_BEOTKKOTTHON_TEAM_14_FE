@@ -137,7 +137,7 @@ const JoinPage = () => {
 
       if (response.data.code === 201) {
         console.log(response.data.message);
-        navigate('/start');
+        document.startViewTransition(() => navigate('/start'));
       }
     } catch (error) {
       console.error('Error registering:', error);
@@ -145,7 +145,7 @@ const JoinPage = () => {
   };
 
   const goBack = () => {
-    navigate('/start');
+    document.startViewTransition(() => navigate('/start'));
   };
 
   return (
