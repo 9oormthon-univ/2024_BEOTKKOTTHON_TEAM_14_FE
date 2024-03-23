@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import SideBar from '@components/bar/SideBar';
 
@@ -58,9 +58,12 @@ const TopBar = () => {
   };
 
   const goBack = () => {
-    document.startViewTransition(() => navigate(-1));
+    if (location.pathname.startsWith('/result/')) {
+      document.startViewTransition(() => navigate('/home'));
+    } else {
+      document.startViewTransition(() => navigate(-1));
+    }
   };
-
   return (
     <>
       <Navbox>
