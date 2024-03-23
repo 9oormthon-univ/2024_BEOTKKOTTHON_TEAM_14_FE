@@ -17,6 +17,8 @@ import MessagePage from '@pages/service/MessagePage';
 import TestamentPage from '@pages/service/TestamentPage';
 import QuestionPage from '@pages/service/QuestionPage';
 
+import ZZ from '@pages/service/ZZ';
+
 export const RouterInfo = [
   {
     path: '/',
@@ -77,6 +79,10 @@ export const RouterInfo = [
       {
         path: 'result/:resultNum',
         element: <ResultPage />,
+      },
+      {
+        path: 'zz',
+        element: <ZZ />,
       },
     ],
   },
