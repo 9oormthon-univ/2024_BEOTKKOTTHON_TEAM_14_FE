@@ -36,7 +36,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  animation: ${slideInAnimation} 0.3s ease forwards;
+  animation: ${slideInAnimation} 0.6s ease forwards;
 `;
 
 const MenuContainer = styled.div`
