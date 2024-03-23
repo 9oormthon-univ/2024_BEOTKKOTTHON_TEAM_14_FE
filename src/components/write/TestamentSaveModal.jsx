@@ -3,6 +3,9 @@ import { styled } from 'styled-components';
 
 import Typography from '../Typography';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { testamentResultAtom } from '../../store/atom';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -19,8 +22,9 @@ const SaveButton = styled.button`
   align-items: center;
 `;
 
-function TestamentSaveModal({ setSaveBtnClick }) {
-  const navigate = useNavigate();
+function TestamentSaveModal({ myTestament, setSaveBtnClick }) {
+  const [result, setResult] = useRecoilState(testamentResultAtom);
+  
   return (
     <div className="bg-[black]/10 absolute left-0 top-0 w-[100%] h-[100vh]">
       <div className="text-center w-[70%] bg-[white] rounded-[20px] pt-[30px] absolute m-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -29,8 +33,16 @@ function TestamentSaveModal({ setSaveBtnClick }) {
         <div className="flex justify-center mt-[10px]">
           <SaveButton
             onClick={() => {
-              setSaveBtnClick(false);
-              document.startViewTransition(() => navigate('/write'));
+              axios.post('/api/will/create',{
+                answerFree: myTestament
+              })
+              .then((res)=>{
+                axios.get("/api/will/get")
+                .then(res => {
+                  setResult(res.data.result);      
+                })
+                setSaveBtnClick(false);
+              })
             }}
           >
             확인

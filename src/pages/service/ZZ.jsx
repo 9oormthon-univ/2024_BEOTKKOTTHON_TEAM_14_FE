@@ -5,35 +5,37 @@ const Screen = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 2rem;
+  
+  background: #Fff;
+  `;
 
-  background: #000;
-`;
-
-const Button = styled.div`
-  width: 8rem;
-  height: 5rem;
-
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-  background: white;
-  border-radius: 3rem;
-
+const ImgBtn = styled.textarea`
+  border-radius: 10px;
   cursor: pointer;
+  background-color: #f5f5f5;
+  width: 100%;
+  resize: none;
+  outline: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  &::placeholder {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
 `;
 
 const ImageBox = styled.img`
-  width: 13rem;
-  height: 13rem;
-  background: #f5f5f5;
+border-radius: 10px;
+  width: 21rem;
+  height: 10rem;
+  margin-top: 20px;
+  // background: #f5f5f5;
 
   object-fit: cover;
   z-index: 2;
@@ -56,11 +58,16 @@ const ZZ = () => {
 
   return (
     <Screen>
-      <Button onClick={() => imageInputRef.current.click()}>
-        사진 업로드 버튼
-      </Button>
 
-      {selectedImage && <ImageBox src={selectedImage} />}
+      {selectedImage
+        ?
+        <ImageBox src={selectedImage}/>
+        :
+        <ImgBtn
+          placeholder='Image'
+          onClick={() => imageInputRef.current.click()}
+        >
+        </ImgBtn>}
 
       {/* 아래 코드는 사진 업로드 관련해서 필요함. display none이라서 어차피 안 보임! */}
       <input
