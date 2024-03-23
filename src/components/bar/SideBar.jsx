@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
+
+const slideInAnimation = keyframes`
+from {
+  transform: translateX(100%);
+}
+to {
+  transform: translateX(0);
+}
+`;
 
 const Container = styled.div`
   position: fixed;
@@ -26,6 +35,8 @@ const Container = styled.div`
   .active {
     opacity: 1;
   }
+
+  animation: ${slideInAnimation} 0.3s ease forwards;
 `;
 
 const MenuContainer = styled.div`
@@ -162,11 +173,16 @@ const SideBar = () => {
       <NavLink
         to={`/write`}
         className={({ isActive }) =>
-          isActive || location.pathname === `/` ? 'active' : 'inactive'
+          isActive ||
+          location.pathname === `/` ||
+          location.pathname === `/testament` ||
+          location.pathname === `/question`
+            ? 'active'
+            : 'inactive'
         }
       >
         <MenuContainer>
-          <span>유서 쓰기</span>
+          <span>나의 이야기 기록하기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11"
@@ -195,13 +211,13 @@ const SideBar = () => {
       </NavLink>
 
       <NavLink
-        to={`/`}
+        to={`/message`}
         className={({ isActive }) =>
           isActive || location.pathname === `/` ? 'active' : 'inactive'
         }
       >
         <MenuContainer>
-          <span>마지막 편지</span>
+          <span>메시지 쓰러가기</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11"
