@@ -4,6 +4,10 @@ import { styled } from 'styled-components';
 import Typography from '../Typography';
 import home6 from '@assets/home_6.png';
 import TopBar from '@components/bar/TopBar';
+import QuestionCheck from './QuestionCheck';
+import axios from 'axios';
+import { questionResultAtom } from '../../store/atom';
+import { useRecoilState } from 'recoil';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -24,6 +28,7 @@ function Question() {
   const [questionAnswer2, setQuestionAnswer2] = useState([]);
   const [questionAnswer3, setQuestionAnswer3] = useState([]);
   const [questionAnswer4, setQuestionAnswer4] = useState([]);
+  const [result, setResult] = useRecoilState(questionResultAtom);
 
   return (
     <>
@@ -70,7 +75,18 @@ function Question() {
         <div className="flex justify-center mt-[10px]">
           <SaveButton
             onClick={() => {
-              setAddMessage(true);
+              axios.post('/api/answer/create',{
+                answer1: questionAnswer1,
+                answer2: questionAnswer2,
+                answer3: questionAnswer3,
+                answer4: questionAnswer4
+              })
+              .then((res)=>{
+                axios.get("/api/answer/get")
+                .then(res => {
+                  setResult(res.data.result);      
+                })
+              })
             }}
           >
             완료

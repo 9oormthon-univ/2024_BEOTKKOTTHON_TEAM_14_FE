@@ -4,6 +4,8 @@ import { styled } from 'styled-components';
 import Typography from '../Typography';
 import TestamentSaveModal from './TestamentSaveModal';
 import TopBar from '@components/bar/TopBar';
+import TestamentCheck from './TestamentCheck';
+import axios from 'axios';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -57,7 +59,7 @@ function Testament() {
             완료
           </SaveButton>
         </div>
-        {saveBtnClick && <TestamentSaveModal setSaveBtnClick={setSaveBtnClick} />}
+        {saveBtnClick && <TestamentSaveModal myTestament={myTestament} setSaveBtnClick={setSaveBtnClick} />}
       </div>
     </>
   );

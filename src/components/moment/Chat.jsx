@@ -34,7 +34,7 @@ const computerChat = [
     speaker: 'computer',
     type: 'text',
     content:
-      '위 사진을 보며 좋은 기억을 떠올려봐요~~~ 화이팅!',
+      '이용해주셔서 감사합니다. 이용자님의 삶에 행복한 순간이 가득하시길 바랍니다!',
   },
 ]
 
