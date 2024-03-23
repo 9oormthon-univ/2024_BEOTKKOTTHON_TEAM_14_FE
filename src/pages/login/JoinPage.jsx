@@ -132,7 +132,6 @@ const JoinPage = () => {
       const response = await axios.post('/api/auth/register', formData, {
         headers: {
           'Content-Type': 'application/json',
-          formData,
         },
       });
 
