@@ -38,6 +38,17 @@ const DeleteButton = styled.button`
   align-items: center;
   margin-left: 260px;
 `;
+
+const ImageBox = styled.div`
+  border-radius: 10px;
+  width: 21rem;
+
+  margin-top: 20px;
+  background: #f3ede0;
+
+  object-fit: cover;
+  z-index: 2;
+`;
 function QuestionCheck({ ques1, ques2, ques3, ques4, picture }) {
   const navigate = useNavigate();
 
@@ -109,7 +120,10 @@ function QuestionCheck({ ques1, ques2, ques3, ques4, picture }) {
             title={'Q5. 원하는 영정사진을 업로드하세요.'}
             type={'question15'}
           />
-          <img src={picture} style={{ objectFit: 'cover' }} />
+
+          <ImageBox>
+            <img src={picture} style={{ objectFit: 'cover' }} />
+          </ImageBox>
         </div>
 
         <div className="flex justify-center mt-[10px]">

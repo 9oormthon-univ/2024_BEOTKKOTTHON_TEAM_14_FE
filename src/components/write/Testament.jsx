@@ -4,9 +4,6 @@ import { styled } from 'styled-components';
 import Typography from '../Typography';
 import TestamentSaveModal from './TestamentSaveModal';
 import TopBar from '@components/bar/TopBar';
-import TestamentCheck from './TestamentCheck';
-import axios from 'axios';
-import ZZ from '../../pages/service/ZZ';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -35,33 +32,33 @@ const Screen = styled.div`
   background: #fff;
 `;
 
-const ImgBtn = styled.textarea`
+const ImgBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   cursor: pointer;
   background-color: #f5f5f5;
   width: 100%;
+  height: 8rem;
   resize: none;
   outline: none;
   margin-top: 20px;
   margin-bottom: 10px;
-  padding-top: 20px;
-  &::placeholder {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
+
+  color: #a8aeb8;
+  text-align: center;
 `;
 
-const ImageBox = styled.img`
+const ImageBox = styled.div`
   border-radius: 10px;
-  width: 21rem;
-  height: 10rem;
   margin-top: 20px;
-  // background: #f5f5f5;
+
+  background: #f5f5f5;
 
   object-fit: cover;
-  z-index: 2;
 `;
+
 function Testament() {
   const [myTestament, setMyTestament] = useState('');
   const [saveBtnClick, setSaveBtnClick] = useState(false);
@@ -78,6 +75,7 @@ function Testament() {
       reader.readAsDataURL(file);
     }
   };
+
   return (
     <>
       <TopBar />
@@ -89,11 +87,6 @@ function Testament() {
             type={'regular15'}
           />
         </div>
-
-        {/* <div className="flex flex-row mt-[30px] mb-[10px]">
-          <Typography title={'이름 '} type={'question15'} />
-          <input className="bg-[#F5F5F5] h-[30px] rounded-[10px]"></input>
-        </div> */}
 
         <textarea
           className="bg-[#F5F5F5] w-[100%] h-[250px] rounded-[10px] p-[20px] text-start mt-[10px] mb-[10px] resize-none outline-none"
@@ -116,15 +109,16 @@ function Testament() {
 
         <Screen>
           {selectedImage ? (
-            <ImageBox src={selectedImage} />
+            <ImageBox>
+              <img src={selectedImage} value={selectedImage} />
+            </ImageBox>
           ) : (
-            <ImgBtn
-              placeholder="Image"
-              onClick={() => imageInputRef.current.click()}
-            ></ImgBtn>
+            <ImgBtn onClick={() => imageInputRef.current.click()}>
+              이미지를 업로드하려면
+              <br /> 여기를 클릭해주세요!
+            </ImgBtn>
           )}
 
-          {/* 아래 코드는 사진 업로드 관련해서 필요함. display none이라서 어차피 안 보임! */}
           <input
             type="file"
             accept="image/*"
@@ -145,6 +139,7 @@ function Testament() {
         {saveBtnClick && (
           <TestamentSaveModal
             myTestament={myTestament}
+            selectedImage={selectedImage}
             setSaveBtnClick={setSaveBtnClick}
           />
         )}

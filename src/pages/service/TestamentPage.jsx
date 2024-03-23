@@ -19,7 +19,16 @@ function TestamentPage() {
       });
   }, []);
   return (
-    <>{result ? <TestamentCheck /> : <Testament className="view-page" />}</>
+    <>
+      {result ? (
+        <TestamentCheck
+          answerFree={result.answerFree}
+          signature={result.signature}
+        />
+      ) : (
+        <Testament className="view-page" />
+      )}
+    </>
   );
 }
 

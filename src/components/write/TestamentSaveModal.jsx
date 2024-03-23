@@ -22,8 +22,10 @@ const SaveButton = styled.button`
   align-items: center;
 `;
 
-function TestamentSaveModal({ myTestament, setSaveBtnClick }) {
+function TestamentSaveModal({ myTestament, selectedImage, setSaveBtnClick }) {
   const [result, setResult] = useRecoilState(testamentResultAtom);
+
+  console.log(selectedImage);
 
   return (
     <div className="bg-[black]/10 absolute left-0 top-0 w-[100%] h-[100vh]">
@@ -36,6 +38,7 @@ function TestamentSaveModal({ myTestament, setSaveBtnClick }) {
               axios
                 .post('/api/will/create', {
                   answerFree: myTestament,
+                  signature: selectedImage,
                 })
                 .then((res) => {
                   axios.get('/api/will/get').then((res) => {

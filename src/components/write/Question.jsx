@@ -21,6 +21,7 @@ const SaveButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+
 const Screen = styled.div`
   position: relative;
   width: 100%;
@@ -46,18 +47,15 @@ const ImgBtn = styled.div`
   margin-top: 20px;
   margin-bottom: 10px;
 
-  &::placeholder {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
+  color: #a8aeb8;
+  text-align: center;
 `;
 
-const ImageBox = styled.img`
+const ImageBox = styled.div`
   border-radius: 10px;
-  width: 21rem;
-  height: 10rem;
   margin-top: 20px;
+
+  background: #f5f5f5;
 
   object-fit: cover;
   z-index: 2;
@@ -160,15 +158,17 @@ function Question() {
             title={'Q5. 원하는 영정사진을 업로드하세요.'}
             type={'question15'}
           />
-          <Screen>
-            {selectedImage ? (
-              <img src={selectedImage} />
-            ) : (
-              <ImgBtn onClick={() => imageInputRef.current.click()}>
-                image upload click!
-              </ImgBtn>
-            )}
 
+          {selectedImage ? (
+            <ImageBox>
+              <img src={selectedImage} />
+            </ImageBox>
+          ) : (
+            <ImgBtn onClick={() => imageInputRef.current.click()}>
+              이미지를 업로드하려면 <br /> 여기를 클릭해주세요!
+            </ImgBtn>
+          )}
+          <Screen>
             {/* 아래 코드는 사진 업로드 관련해서 필요함. display none이라서 어차피 안 보임! */}
             <input
               type="file"
