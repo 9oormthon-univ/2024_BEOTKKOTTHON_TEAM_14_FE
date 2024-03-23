@@ -3,7 +3,7 @@
     { "source": "/(.*)", "destination": "/" },
     {
       "source": "/api/:path*",
-      "destination": "//plandeath.store:8080/:path*"
+      "destination": "http://plandeath.store:8080/:path*"
     }
   ]
 }
