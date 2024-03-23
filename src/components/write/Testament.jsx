@@ -1,4 +1,4 @@
-import React, { useState ,useRef} from 'react';
+import React, { useState, useRef } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography';
@@ -7,7 +7,6 @@ import TopBar from '@components/bar/TopBar';
 import TestamentCheck from './TestamentCheck';
 import axios from 'axios';
 import ZZ from '../../pages/service/ZZ';
-
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -32,9 +31,9 @@ const Screen = styled.div`
   // align-items: end;
   // justify-content: center;
   gap: 2rem;
-  
-  background: #Fff;
-  `;
+
+  background: #fff;
+`;
 
 const ImgBtn = styled.textarea`
   border-radius: 10px;
@@ -51,11 +50,10 @@ const ImgBtn = styled.textarea`
     align-items: center;
     justify-content: center;
   }
-  
 `;
 
 const ImageBox = styled.img`
-border-radius: 10px;
+  border-radius: 10px;
   width: 21rem;
   height: 10rem;
   margin-top: 20px;
@@ -64,6 +62,7 @@ border-radius: 10px;
   object-fit: cover;
   z-index: 2;
 `;
+
 function Testament() {
   const [myTestament, setMyTestament] = useState('');
   const [saveBtnClick, setSaveBtnClick] = useState(false);
@@ -80,13 +79,17 @@ function Testament() {
       reader.readAsDataURL(file);
     }
   };
+
   return (
     <>
       <TopBar />
       <div className="relative p-[28px]">
         <Typography title={'나의 유서 작성하기'} type={'bold30'} />
-        <div className='my-[10px]'>
-          <Typography title={'인생에서 가장 하고 싶은 말을 적어주세요. '} type={'regular15'} />
+        <div className="my-[10px]">
+          <Typography
+            title={'인생에서 가장 하고 싶은 말을 적어주세요. '}
+            type={'regular15'}
+          />
         </div>
 
         {/* <div className="flex flex-row mt-[30px] mb-[10px]">
@@ -102,22 +105,26 @@ function Testament() {
             setMyTestament(e.target.value);
           }}
         ></textarea>
-        <div className='mt-[20px]'>
-          <Typography title={'법적으로 유서에는 작성자의 이름과 주소, 날인이 '} type={'regular15'} />
-          <Typography title={'들어가야 합니다. 날인을 업로드해주세요.'} type={'regular15'} />
+        <div className="mt-[20px]">
+          <Typography
+            title={'법적으로 유서에는 작성자의 이름과 주소, 날인이 '}
+            type={'regular15'}
+          />
+          <Typography
+            title={'들어가야 합니다. 날인을 업로드해주세요.'}
+            type={'regular15'}
+          />
         </div>
 
         <Screen>
-
-          {selectedImage
-            ?
+          {selectedImage ? (
             <ImageBox src={selectedImage} />
-            :
+          ) : (
             <ImgBtn
-              placeholder='Image'
+              placeholder="Image"
               onClick={() => imageInputRef.current.click()}
-            >
-            </ImgBtn>}
+            ></ImgBtn>
+          )}
 
           {/* 아래 코드는 사진 업로드 관련해서 필요함. display none이라서 어차피 안 보임! */}
           <input
@@ -137,7 +144,12 @@ function Testament() {
             완료
           </SaveButton>
         </div>
-        {saveBtnClick && <TestamentSaveModal myTestament={myTestament} setSaveBtnClick={setSaveBtnClick} />}
+        {saveBtnClick && (
+          <TestamentSaveModal
+            myTestament={myTestament}
+            setSaveBtnClick={setSaveBtnClick}
+          />
+        )}
       </div>
     </>
   );
