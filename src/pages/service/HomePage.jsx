@@ -88,6 +88,11 @@ const MenuBox = styled.div`
   .bold {
     font-weight: 800;
   }
+
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ButtonArea = styled.div`
