@@ -28,30 +28,33 @@ const Screen = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
-  background: #Fff;
-  `;
 
-const ImgBtn = styled.textarea`
+  background: #fff;
+`;
+
+const ImgBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   cursor: pointer;
   background-color: #f5f5f5;
   width: 100%;
+  height: 7rem;
   resize: none;
   outline: none;
   margin-top: 20px;
   margin-bottom: 10px;
-  padding-top: 20px;
+
   &::placeholder {
     text-align: center;
     align-items: center;
     justify-content: center;
   }
-  
 `;
 
 const ImageBox = styled.img`
-border-radius: 10px;
+  border-radius: 10px;
   width: 21rem;
   height: 10rem;
   margin-top: 20px;
@@ -59,6 +62,7 @@ border-radius: 10px;
   object-fit: cover;
   z-index: 2;
 `;
+
 function Question() {
   const [questionAnswer1, setQuestionAnswer1] = useState([]);
   const [questionAnswer2, setQuestionAnswer2] = useState([]);
@@ -79,6 +83,22 @@ function Question() {
     }
   };
 
+  const handleSave = () => {
+    const request = {
+      answer1: questionAnswer1,
+      answer2: questionAnswer2,
+      answer3: questionAnswer3,
+      answer4: questionAnswer4,
+      picture: selectedImage,
+    };
+
+    axios.post('/api/answer/create', request).then((res) => {
+      axios.get('/api/answer/get').then((res) => {
+        setResult(res.data.result);
+      });
+    });
+  };
+
   return (
     <>
       <TopBar />
@@ -87,7 +107,10 @@ function Question() {
           <Typography title={'About ME'} type={'bold30'} />
         </div>
         <div className="mt-[20px] mb-[10px]">
-          <Typography title={'Q1. 비상금이 있다면, 어디에 있나요?'} type={'question15'} />
+          <Typography
+            title={'Q1. 비상금이 있다면, 어디에 있나요?'}
+            type={'question15'}
+          />
           <textarea
             className="bg-[#F5F5F5] w-[100%] rounded-[10px] px-[15px] py-[10px] resize-none outline-none"
             value={questionAnswer1}
@@ -96,7 +119,10 @@ function Question() {
         </div>
 
         <div className="mt-[20px] mb-[10px]">
-          <Typography title={'Q2. 어떤 분위기의 장례식을 원하시나요?'} type={'question15'} />
+          <Typography
+            title={'Q2. 어떤 분위기의 장례식을 원하시나요?'}
+            type={'question15'}
+          />
           <textarea
             className="bg-[#F5F5F5] w-[100%] rounded-[10px] px-[15px] py-[10px] resize-none outline-none"
             value={questionAnswer2}
@@ -105,7 +131,10 @@ function Question() {
         </div>
 
         <div className="mt-[20px] mb-[10px]">
-          <Typography title={'Q3. 당신이 원하는 묘비명은 무엇인가요?'} type={'question15'} />
+          <Typography
+            title={'Q3. 당신이 원하는 묘비명은 무엇인가요?'}
+            type={'question15'}
+          />
           <textarea
             className="bg-[#F5F5F5] w-[100%] rounded-[10px] px-[15px] py-[10px] resize-none outline-none"
             value={questionAnswer3}
@@ -114,7 +143,12 @@ function Question() {
         </div>
 
         <div className="mt-[20px] mb-[10px]">
-          <Typography title={'Q4. 부모님 혹은 친구가 나의 핸드폰을 열어보기를 원하시나요?'} type={'question15'} />
+          <Typography
+            title={
+              'Q4. 부모님 혹은 친구가 나의 핸드폰을 열어보기를 원하시나요?'
+            }
+            type={'question15'}
+          />
           <textarea
             className="bg-[#F5F5F5] w-[100%] rounded-[10px] px-[15px] py-[10px] resize-none outline-none"
             value={questionAnswer4}
@@ -122,18 +156,18 @@ function Question() {
           ></textarea>
         </div>
         <div className="mt-[20px] mb-[10px]">
-          <Typography title={'Q5. 원하는 영정사진을 업로드하세요.'} type={'question15'} />
+          <Typography
+            title={'Q5. 원하는 영정사진을 업로드하세요.'}
+            type={'question15'}
+          />
           <Screen>
-
-            {selectedImage
-              ?
-              <ImageBox src={selectedImage} />
-              :
-              <ImgBtn
-                placeholder='Image'
-                onClick={() => imageInputRef.current.click()}
-              >
-              </ImgBtn>}
+            {selectedImage ? (
+              <img src={selectedImage} />
+            ) : (
+              <ImgBtn onClick={() => imageInputRef.current.click()}>
+                image upload click!
+              </ImgBtn>
+            )}
 
             {/* 아래 코드는 사진 업로드 관련해서 필요함. display none이라서 어차피 안 보임! */}
             <input
@@ -146,24 +180,7 @@ function Question() {
           </Screen>
         </div>
         <div className="flex justify-center mt-[10px]">
-          <SaveButton
-            onClick={() => {
-              axios.post('/api/answer/create', {
-                answer1: questionAnswer1,
-                answer2: questionAnswer2,
-                answer3: questionAnswer3,
-                answer4: questionAnswer4
-              })
-                .then((res) => {
-                  axios.get("/api/answer/get")
-                    .then(res => {
-                      setResult(res.data.result);
-                    })
-                })
-            }}
-          >
-            완료
-          </SaveButton>
+          <SaveButton onClick={handleSave}>완료</SaveButton>
         </div>
       </div>
     </>

@@ -9,26 +9,29 @@ function QuestionPage() {
   const [result, setResult] = useRecoilState(questionResultAtom);
 
   useEffect(() => {
-    axios.get("/api/answer/get")
-      .then(res => {
-        setResult(res.data.result);      
-      }).catch(() => {
-        setResult(null);
+    axios
+      .get('/api/answer/get')
+      .then((res) => {
+        setResult(res.data.result);
       })
+      .catch(() => {
+        setResult(null);
+      });
   }, []);
 
   return (
     <>
-      {result ? 
+      {result ? (
         <QuestionCheck
           ques1={result.answer1}
           ques2={result.answer2}
           ques3={result.answer3}
           ques4={result.answer4}
+          picture={result.picture}
         />
-        :
+      ) : (
         <Question />
-      }
+      )}
     </>
   );
 }

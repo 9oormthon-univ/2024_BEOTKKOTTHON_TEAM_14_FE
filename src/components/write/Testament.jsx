@@ -62,7 +62,6 @@ const ImageBox = styled.img`
   object-fit: cover;
   z-index: 2;
 `;
-
 function Testament() {
   const [myTestament, setMyTestament] = useState('');
   const [saveBtnClick, setSaveBtnClick] = useState(false);
@@ -79,7 +78,6 @@ function Testament() {
       reader.readAsDataURL(file);
     }
   };
-
   return (
     <>
       <TopBar />
