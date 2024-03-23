@@ -34,7 +34,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://3.37.117.95:8080/',
+        target: 'https://plandeath.store',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
