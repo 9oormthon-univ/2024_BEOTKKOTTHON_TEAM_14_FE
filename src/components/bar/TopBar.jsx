@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import SideBar from '@components/bar/SideBar';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const Navbox = styled.div`
   position: relative;
@@ -27,10 +36,16 @@ const Navbox = styled.div`
   svg {
     cursor: pointer;
     margin: 1rem;
+    transition: opacity 0.3s ease;
   }
 
   .logo {
     cursor: default;
+    animation: ${fadeIn} 0.4s ease forwards;
+  }
+
+  .close {
+    animation: ${fadeIn} 0.4s ease forwards;
   }
 `;
 
