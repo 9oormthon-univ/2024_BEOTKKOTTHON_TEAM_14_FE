@@ -135,6 +135,9 @@ const HomePage = () => {
       const response = await axios.post('/api/auth/logout');
       if (response.data.code === 201) {
         console.log(response.data.message);
+
+        document.cookie =
+          'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         navigate('/start');
       }
     } catch (error) {
