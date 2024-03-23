@@ -6,6 +6,7 @@ import Message from './Message';
 import MessageInput from './MessageInput';
 import heart from '@assets/heartMessage.png';
 import axios from 'axios';
+import TopBar from '@components/bar/TopBar'
 
 const SaveButton = styled.button`
   margin: 30px 0;
@@ -43,9 +44,10 @@ function MessageList() {
     axios.get('/api/messages').then((res) => {
       setMessageContent(res.data.result);
     });
-  }, []);
+  }, [addMessage]);
   return (
     <>
+      <TopBar/>
       {addMessage ? (
         <MessageInput setAddMessage={setAddMessage} />
       ) : (

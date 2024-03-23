@@ -80,7 +80,7 @@ function Layout() {
           <h3 className="logo__description">나의 죽음을 기획해보세요.</h3>
         </LogoContainer>
       )}
-      <ContentContainer>
+      <ContentContainer className='view-page'>
         <Outlet />
       </ContentContainer>
 

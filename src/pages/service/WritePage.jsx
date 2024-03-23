@@ -6,7 +6,7 @@ function WritePage() {
 
   return (
   <>
-    <Write />
+    <Write className="view-page" />
   </>);
 }
 

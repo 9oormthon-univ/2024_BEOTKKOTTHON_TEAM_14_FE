@@ -43,7 +43,7 @@ const TopBar = () => {
   };
 
   const goBack = () => {
-    navigate(-1);
+    document.startViewTransition(() => navigate(-1));
   };
 
   return (

@@ -4,7 +4,7 @@ import Message from '@components/write/MessageList';
 function MessagePage() {
   return (
     <>
-      <Message />
+      <Message className="view-page" />
     </>
   );
 }

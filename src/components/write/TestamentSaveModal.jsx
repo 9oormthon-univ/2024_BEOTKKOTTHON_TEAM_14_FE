@@ -30,7 +30,7 @@ function TestamentSaveModal({ setSaveBtnClick }) {
           <SaveButton
             onClick={() => {
               setSaveBtnClick(false);
-              navigate('/write');
+              document.startViewTransition(() => navigate('/write'));
             }}
           >
             확인

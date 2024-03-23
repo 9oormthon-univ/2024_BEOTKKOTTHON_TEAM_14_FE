@@ -14,12 +14,27 @@ const Computer = styled.div`
   margin-bottom: 20px;
 `;
 
-function ComputerChat({ content }) {
+const ComputerImg = styled.img`
+  width: 210px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+  cursor: pointer;
+`; 
+
+function ComputerChat({ type, content }) {
+  const onImageClick = (url) => window.open(url, '_blank').focus();
+
   return (
     <>
       <div className="flex items-start">
         <img src={profile} className="object-contain mr-[10px]" />
-        <Computer>{content}</Computer>
+        {
+          type == 'text' ?
+          <Computer>{content}</Computer>
+          :
+          <ComputerImg onClick={() => onImageClick(content)} src={content} />
+        }
       </div>
     </>
   );
