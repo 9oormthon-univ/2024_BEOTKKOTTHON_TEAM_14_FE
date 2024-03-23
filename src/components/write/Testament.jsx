@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 import Typography from '../Typography';
 import TestamentSaveModal from './TestamentSaveModal';
+import TopBar from '@components/bar/TopBar';
 
 const SaveButton = styled.button`
   margin-top: 20px;
@@ -24,38 +25,41 @@ function Testament() {
   const [saveBtnClick, setSaveBtnClick] = useState(false);
 
   return (
-    <div className="relative p-[28px]">
-      <Typography title={'나의 유서 작성하기'} type={'bold30'} />
-      <div className='my-[10px]'>
-        <Typography title={'인생에서 가장 하고 싶은 말을 적어주세요. '} type={'regular15'} />
-        <Typography title={'법적으로 유서에는 작성자의 이름과 주소, 날인이 들어가야 합니다.'} type={'regular15'} />
-      </div>
+    <>
+      <TopBar/>
+      <div className="relative p-[28px]">
+        <Typography title={'나의 유서 작성하기'} type={'bold30'} />
+        <div className='my-[10px]'>
+          <Typography title={'인생에서 가장 하고 싶은 말을 적어주세요. '} type={'regular15'} />
+          <Typography title={'법적으로 유서에는 작성자의 이름과 주소, 날인이 들어가야 합니다.'} type={'regular15'} />
+        </div>
 
-      {/* <div className="flex flex-row mt-[30px] mb-[10px]">
-        <Typography title={'이름 '} type={'question15'} />
-        <input className="bg-[#F5F5F5] h-[30px] rounded-[10px]"></input>
-      </div> */}
+        {/* <div className="flex flex-row mt-[30px] mb-[10px]">
+          <Typography title={'이름 '} type={'question15'} />
+          <input className="bg-[#F5F5F5] h-[30px] rounded-[10px]"></input>
+        </div> */}
 
-      <textarea
-        className="bg-[#F5F5F5] w-[100%] h-[250px] rounded-[10px] p-[20px] text-start mt-[20px]"
-        placeholder="이 곳에 유서를 작성해 주세요."
-        value={myTestament}
-        onChange={(e) => {
-          setMyTestament(e.target.value);
-        }}
-      ></textarea>
-
-      <div className="flex justify-center">
-        <SaveButton
-          onClick={() => {
-            setSaveBtnClick(true);
+        <textarea
+          className="bg-[#F5F5F5] w-[100%] h-[250px] rounded-[10px] p-[20px] text-start mt-[20px] resize-none outline-none"
+          placeholder="이 곳에 유서를 작성해 주세요."
+          value={myTestament}
+          onChange={(e) => {
+            setMyTestament(e.target.value);
           }}
-        >
-          완료
-        </SaveButton>
+        ></textarea>
+
+        <div className="flex justify-center">
+          <SaveButton
+            onClick={() => {
+              setSaveBtnClick(true);
+            }}
+          >
+            완료
+          </SaveButton>
+        </div>
+        {saveBtnClick && <TestamentSaveModal setSaveBtnClick={setSaveBtnClick} />}
       </div>
-      {saveBtnClick && <TestamentSaveModal setSaveBtnClick={setSaveBtnClick} />}
-    </div>
+    </>
   );
 }
 

@@ -20,6 +20,7 @@ const ContentBox = styled.div`
   &:hover {
     background-color: #3a3a3a;
   }
+  cursor: pointer;
 `;
 
 function Write() {

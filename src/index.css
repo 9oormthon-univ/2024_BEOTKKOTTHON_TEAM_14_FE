@@ -43,6 +43,11 @@ h1 {
   display: none; /* Chrome, Safari, Opera*/
 }
 
+.textarea {
+  resize: none;
+  outline: none;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
