@@ -6,10 +6,8 @@ import axios from 'axios';
 import home_logo from '@assets/home_logo.png';
 import home_1 from '@assets/home_1.png';
 import home_2 from '@assets/home_2.png';
-import home_3 from '@assets/home_3.png';
 import home_4 from '@assets/home_4.png';
 import home_6 from '@assets/home_6.png';
-import home_7 from '@assets/home_7.png';
 
 const Screen = styled.div`
   position: relative;
@@ -89,6 +87,11 @@ const MenuBox = styled.div`
 
   .bold {
     font-weight: 800;
+  }
+
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 

@@ -39,21 +39,20 @@ function Write() {
 
         {/* 유서쓰기 */}
         <ContentBox onClick={() => document.startViewTransition(() => navigate('/testament'))}>
-          <div className="w-[25%] mx-[25px]">
+          <div className="w-[25%] mx-[20px]">
             <img src={home5} />
           </div>
           <div className="flex flex-col">
             <div className="items-center text-[20px] italic mb-[5px]">
               <Typography title={'My Testament'} type={'bold20'} />
             </div>
-            <Typography title={'당신만의 유서를 '} type={'regular15'} />
-            <Typography title={'작성하세요.'} type={'regular15'} />
+            <Typography title={'당신만의 유서를 작성하세요.'} type={'regular15'} />
           </div>
         </ContentBox>
 
         {/* 유서쓰기 */}
         <ContentBox onClick={() => document.startViewTransition(() => navigate('/question'))}>
-          <div className="w-[25%] mx-[25px]">
+          <div className="w-[25%] mx-[20px]">
             <img src={home7} />
           </div>
           <div className="flex flex-col">
@@ -61,7 +60,7 @@ function Write() {
               <Typography title={'About ME'} type={'bold20'} />
             </div>
             <Typography
-              title={'당신의 이야기를 들려주세요'}
+              title={'당신에 대한 질문에 답하세요'}
               type={'regular15'}
             />
             <Typography title={''} type={'regular15'} />
